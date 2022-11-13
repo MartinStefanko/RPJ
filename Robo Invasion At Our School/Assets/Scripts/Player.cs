@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     void Animate()
     {
         anim.SetFloat("AnimMoveX", mousePosition.x);
+        
         anim.SetFloat("AnimMoveY", mousePosition.y);
-        anim.SetFloat("AnimMoveMagnitude", moveDirection.magnitude);
     }
 }
