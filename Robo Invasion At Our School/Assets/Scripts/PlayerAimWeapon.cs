@@ -17,7 +17,6 @@ public class PlayerAimWeapon : MonoBehaviour
     void Update()
     {
         Aiming();
-        Shooting();
     }
 
     void Aiming()
@@ -41,16 +40,6 @@ public class PlayerAimWeapon : MonoBehaviour
 
         aimTransform.localScale = aimLocalScale;
     }
-
-
-    void Shooting()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            aimAnim.SetTrigger("Shoot");
-        }
-    }
-
 
     // Get Mouse Position in World with Z = of
     public static Vector3 GetMouseWorldPosition()
