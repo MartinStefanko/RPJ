@@ -17,7 +17,6 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
             anim.SetTrigger("Shoot");
-        else
-            anim.ResetTrigger("Shoot");
+        
     }
 }
