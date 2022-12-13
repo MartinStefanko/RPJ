@@ -32,39 +32,24 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: -352358450, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: 1660894088, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: -1339925823, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: 436973474, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: 954419715, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: 1015517112, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: -990856002, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: -1192113755, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-    - {fileID: 774879880, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
+    - {fileID: 1248779963, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+    - {fileID: -552386506, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+    - {fileID: 295391750, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+    - {fileID: 1182964721, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: -1192113755, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: -990856002, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: 1660894088, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: 774879880, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: 954419715, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: 1015517112, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: -1339925823, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: 436973474, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
-  - {fileID: -352358450, guid: 296b0428b71dc994f8d3f53acf00d5a0, type: 3}
+  - {fileID: 1182964721, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+  - {fileID: 295391750, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+  - {fileID: 1248779963, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+  - {fileID: -552386506, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
   m_PackedSpriteNamesToIndex:
-  - pozadie_55
-  - pozadie_54
-  - pozadie_47
-  - pozadie_56
-  - pozadie_50
-  - pozadie_53
-  - pozadie_48
-  - pozadie_49
-  - pozadie_0
+  - pozadie_1_51
+  - pozadie_1_50
+  - pozadie_1_48
+  - pozadie_1_49
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0
