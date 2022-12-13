@@ -32,24 +32,24 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: -626147836, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
-    - {fileID: -1519616611, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
-    - {fileID: -566386660, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
-    - {fileID: -386168236, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+    - {fileID: 1252815613, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+    - {fileID: 1662995555, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+    - {fileID: -238139933, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+    - {fileID: 401053741, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1182964721, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
-  - {fileID: 295391750, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
-  - {fileID: 1248779963, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
-  - {fileID: -552386506, guid: 82c0b665002774d41b2121fd18829e9a, type: 3}
+  - {fileID: -238139933, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+  - {fileID: 401053741, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+  - {fileID: 1662995555, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+  - {fileID: 1252815613, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   m_PackedSpriteNamesToIndex:
-  - pozadie_1_51
-  - pozadie_1_50
-  - pozadie_1_48
-  - pozadie_1_49
+  - tileset_vestibul_50
+  - tileset_vestibul_51
+  - tileset_vestibul_49
+  - tileset_vestibul_48
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0
