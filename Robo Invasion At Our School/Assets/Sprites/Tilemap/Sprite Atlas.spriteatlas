@@ -36,16 +36,28 @@ SpriteAtlas:
     - {fileID: 1662995555, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
     - {fileID: -238139933, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
     - {fileID: 401053741, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+    - {fileID: 64267624, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
+    - {fileID: 459166792, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
+    - {fileID: 1322143092, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
+    - {fileID: 914038373, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 914038373, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
+  - {fileID: 1322143092, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
+  - {fileID: 64267624, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
+  - {fileID: 459166792, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
   - {fileID: -238139933, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   - {fileID: 401053741, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   - {fileID: 1662995555, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   - {fileID: 1252815613, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   m_PackedSpriteNamesToIndex:
+  - triedat_22
+  - triedat_21
+  - triedat_19
+  - triedat_20
   - tileset_vestibul_50
   - tileset_vestibul_51
   - tileset_vestibul_49
