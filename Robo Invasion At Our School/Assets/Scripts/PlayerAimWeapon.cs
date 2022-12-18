@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerAimWeapon : MonoBehaviour
 {
     private Transform aimTransform;
-    [SerializeField]
-    private Animator aimAnim;
 
     void Awake()
     {
