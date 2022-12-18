@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     {
         switch (other.gameObject.tag)
         {
-            case "Wall":
+            case "Void":
                 Debug.Log("wall");
                 Destroy(gameObject);
                 break;
