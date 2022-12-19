@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorTriggerButton : MonoBehaviour
 {
@@ -8,16 +9,35 @@ public class DoorTriggerButton : MonoBehaviour
     private DoorAnimated door;
     [SerializeField]
     private BoxCollider2D collider;
+    public bool isInRange;
+    public UnityEvent interactAction;
+    public KeyCode interactKey;
+
     private void Update()
-    
+
 
     {
         if (Input.GetKeyDown(KeyCode.E))
-        {
-            door.DoorOpen();
-            collider.enabled = false;
+        { Debug.Log(isInRange);
+            if (isInRange)
+            {
+                door.DoorOpen();
+                collider.enabled = false;
+            }
+
         }
-       
+}
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                isInRange = true;
+                Debug.Log(isInRange);
+
+            }
+        }
+
 
     }
-}
+    
+
