@@ -56,6 +56,14 @@ SpriteAtlas:
     - {fileID: 1390341748, guid: e65b3a919f7910248899f105824d59fb, type: 3}
     - {fileID: -456146704, guid: 19a659e8a0e2ff445926d65b5c9819b1, type: 3}
     - {fileID: 594972813, guid: 19a659e8a0e2ff445926d65b5c9819b1, type: 3}
+    - {fileID: 1720756167, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+    - {fileID: -107267068, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+    - {fileID: 932864937, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+    - {fileID: 316144196, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+    - {fileID: 1626185673, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
+    - {fileID: -1864544587, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
+    - {fileID: -1218679101, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
+    - {fileID: 1078687023, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -79,12 +87,20 @@ SpriteAtlas:
   - {fileID: 339274392, guid: 826da361e4be32c47821bf678c4b2612, type: 3}
   - {fileID: 1390341748, guid: e65b3a919f7910248899f105824d59fb, type: 3}
   - {fileID: 1690182407, guid: e65b3a919f7910248899f105824d59fb, type: 3}
+  - {fileID: 1078687023, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
+  - {fileID: -1864544587, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
+  - {fileID: -1218679101, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
+  - {fileID: 1626185673, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
   - {fileID: -456146704, guid: 19a659e8a0e2ff445926d65b5c9819b1, type: 3}
   - {fileID: 594972813, guid: 19a659e8a0e2ff445926d65b5c9819b1, type: 3}
   - {fileID: -238139933, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   - {fileID: 401053741, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   - {fileID: 1662995555, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
   - {fileID: 1252815613, guid: 07122f0c3cb717245aa121ca530f560b, type: 3}
+  - {fileID: 316144196, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+  - {fileID: 932864937, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+  - {fileID: -107267068, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
+  - {fileID: 1720756167, guid: b2dd83bf14fa15e468d9b10125e8b18d, type: 3}
   m_PackedSpriteNamesToIndex:
   - triedat_22
   - triedat_18
@@ -104,12 +120,20 @@ SpriteAtlas:
   - triedat_2
   - Edges_14
   - Edges_10
+  - background_vestibul_41
+  - background_vestibul_43
+  - background_vestibul_42
+  - background_vestibul_44
   - Interior_Tiles_347
   - Interior_Tiles_359
   - tileset_vestibul_50
   - tileset_vestibul_51
   - tileset_vestibul_49
   - tileset_vestibul_48
+  - Tiles_3
+  - Tiles_2
+  - Tiles_1
+  - Tiles_0
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0
