@@ -9,20 +9,34 @@ public class InteractableArea : MonoBehaviour
     private DoorAnimated door;
     [SerializeField]
     private BoxCollider2D collider;
-    public bool isInRange;
-    public UnityEvent interactAction;
-    public KeyCode interactKey;
+    [SerializeField]
+    private GameObject roomHider;
+    [SerializeField]
+    private float fadeSpeed = 2.5f;
 
-    private void Update()
+    private bool isInRange;
+    private bool fadeOut = false;
+
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
-        { Debug.Log(isInRange);
+        {
             if (isInRange)
             {
                 door.DoorOpen();
                 collider.enabled = false;
+                fadeOut = true;
             }
 
+        }
+        if (fadeOut)
+        {
+            Color objectColor = roomHider.GetComponent<Renderer>().material.color;
+            float fadeAmount = objectColor.a - (fadeSpeed) * Time.deltaTime;
+
+            objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
+            roomHider.GetComponent<Renderer>().material.color = objectColor;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,8 +44,6 @@ public class InteractableArea : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 isInRange = true;
-                Debug.Log(isInRange);
-
             }
     }
 
@@ -40,15 +52,8 @@ public class InteractableArea : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log(isInRange);
-
         }
     }
-   
-
-
-
-
-    }
+}
     
 
