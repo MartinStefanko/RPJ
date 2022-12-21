@@ -32,13 +32,14 @@ public class MeleeEnemyAI : MonoBehaviour
     private void Update()
     {
         
+     
         
-        
+        anim.SetBool("IsRunning", isInChaseRange);
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
-        anim.SetBool("IsRunning", isInChaseRange);
         Debug.Log(isInChaseRange);
         Debug.Log(isInAttackRange);
+   
       
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
