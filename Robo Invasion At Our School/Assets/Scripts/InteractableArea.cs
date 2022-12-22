@@ -24,14 +24,15 @@ public class InteractableArea : MonoBehaviour
         {
             if (isInRange)
             {
-                door.DoorOpen();
-                collider.enabled = false;
+                // Wait for 0.2 secs before actually openning the door
+                Invoke("OpenDoor", 0.2f);
                 fadeOut = true;
             }
 
         }
         if (fadeOut)
         {
+            // Decreasing objects transparency over time
             Color objectColor = roomHider.GetComponent<Renderer>().material.color;
             float fadeAmount = objectColor.a - (fadeSpeed) * Time.deltaTime;
 
@@ -39,12 +40,19 @@ public class InteractableArea : MonoBehaviour
             roomHider.GetComponent<Renderer>().material.color = objectColor;
         }
     }
+
+    private void OpenDoor()
+    {
+        door.DoorOpen();
+        collider.enabled = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                isInRange = true;
-            }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isInRange = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

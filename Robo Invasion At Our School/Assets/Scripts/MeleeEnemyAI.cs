@@ -59,7 +59,9 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         anim.SetBool("IsRunning", isInChaseRange);
 
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
+        if(!isInChaseRange)
+            isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
+
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
     }
 
@@ -86,7 +88,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Bullet"))
         {
-            Destroy(GameObject.FindWithTag("Enemy"));
+            Destroy(gameObject);
         }
     }
 

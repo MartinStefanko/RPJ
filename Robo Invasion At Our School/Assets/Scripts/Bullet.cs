@@ -8,8 +8,8 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
 
     void OnTriggerEnter2D(Collider2D other)
-    {
-        switch (other.gameObject.tag)
+    { 
+         switch (other.gameObject.tag)
         {
             case "Void":
                 Destroy(gameObject);
@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
         }
+        
     }
 
 }
