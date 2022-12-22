@@ -21,6 +21,9 @@ public class MeleeEnemyAI : MonoBehaviour
     private bool isInChaseRange;
     private bool isInAttackRange;
 
+    [SerializeField]
+    private GameObject bullet;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,14 +34,10 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void Update()
     {
-        
-        
-        
+        anim.SetBool("IsRunning", isInChaseRange);
+
         isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
         isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
-        anim.SetBool("IsRunning", isInChaseRange);
-        Debug.Log(isInChaseRange);
-        Debug.Log(isInAttackRange);
       
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -51,18 +50,20 @@ public class MeleeEnemyAI : MonoBehaviour
         }
     }
 
-        private void FixedUpdate()
-        {   
-            if(isInChaseRange && !isInAttackRange)
-            {
-                MoveCharacter(movement);
-            }
+    private void FixedUpdate()
+    {
+        // Check if enemy is in chase range and if it isn't in attack range
+        // If the conditions are true move the enemy
+        if (isInChaseRange && !isInAttackRange)
+        {
+            MoveCharacter(movement);
+        }
+        // If the player is in attack range stop the enemy
         if (isInAttackRange)
         {
             rb.velocity = Vector2.zero;
-
-            }
         }
+    }    
 
     private void MoveCharacter(Vector2 dir)
     {
@@ -70,6 +71,15 @@ public class MeleeEnemyAI : MonoBehaviour
 
     }
 
-   }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Bullet"))
+        {
+            Destroy(GameObject.FindWithTag("Enemy"));
+        }
+    }
+
+
+}
   
 
