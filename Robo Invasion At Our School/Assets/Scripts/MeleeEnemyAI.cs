@@ -34,20 +34,10 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void Update()
     {
-        anim.SetBool("IsRunning", isInChaseRange);
+        RunAttackCheck();
 
-        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
-      
-        dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        dir.Normalize();
-        movement = dir;
-        if (shouldRotate)
-        {
-            anim.SetFloat("AnimMoveX", dir.x);
-            anim.SetFloat("AnimMoveY", dir.y);
-        }
+        Movement();
+        
     }
 
     private void FixedUpdate()
@@ -63,7 +53,28 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
-    }    
+    }
+
+    private void RunAttackCheck()
+    {
+        anim.SetBool("IsRunning", isInChaseRange);
+
+        isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
+        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
+    }
+
+    private void Movement()
+    {
+        dir = target.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        dir.Normalize();
+        movement = dir;
+        if (shouldRotate)
+        {
+            anim.SetFloat("AnimMoveX", dir.x);
+            anim.SetFloat("AnimMoveY", dir.y);
+        }
+    }
 
     private void MoveCharacter(Vector2 dir)
     {
