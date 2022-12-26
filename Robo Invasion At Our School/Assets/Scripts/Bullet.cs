@@ -7,9 +7,11 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
+    public float damage=1;
+
     void OnTriggerEnter2D(Collider2D other)
-    { 
-         switch (other.gameObject.tag)
+    {
+        switch (other.gameObject.tag)
         {
             case "Void":
                 Destroy(gameObject);
@@ -18,7 +20,16 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 break;
         }
-        
+         
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+        {
+        if (collision.gameObject.GetComponent<HealthSystemMeleeEnemy>() != null)
+        {
+            HealthSystemMeleeEnemy _healthSystem = collision.gameObject.GetComponent<HealthSystemMeleeEnemy>();
+            _healthSystem.TakeDamage(damage);
+        }
+        Destroy(gameObject);
+        }
 
 }

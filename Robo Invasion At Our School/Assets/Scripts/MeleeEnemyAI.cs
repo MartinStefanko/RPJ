@@ -7,6 +7,9 @@ public class MeleeEnemyAI : MonoBehaviour
     public float speed;
     public float checkRadius;
     public float attackRadius;
+    public float maxHealth = 10;
+    float currentHealth;
+   
 
     public bool shouldRotate;
 
@@ -29,7 +32,7 @@ public class MeleeEnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
-
+        currentHealth = maxHealth;
     }
 
     private void Update()
@@ -87,12 +90,17 @@ public class MeleeEnemyAI : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Bullet"))
+    {      currentHealth -= 1;
+          
+        }
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
+        }
+
     }
 
 
-}
   
 
