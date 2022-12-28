@@ -14,10 +14,12 @@ public class Player : MonoBehaviour
     private SpriteRenderer player;
     [SerializeField]
     private Camera sceneCamera;
+    public static Player instance;
+       
 
-    
+
     [SerializeField]
-    private int health;
+    public int health;
 
     private bool hit=true;
 
@@ -79,6 +81,7 @@ public class Player : MonoBehaviour
             if (hit){
                 StartCoroutine(HitBoxOff()); 
                 health--;
+                GameController.instance.UpdateHealthTXT();
             }
         }
     }

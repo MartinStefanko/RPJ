@@ -95,7 +95,10 @@ public class MeleeEnemyAI : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+            
             Destroy(gameObject);
+            GameController.instance.money += 50;
+            GameController.instance.UpdateMoneyTXT();
         }
         }
 
