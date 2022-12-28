@@ -12,7 +12,10 @@ public class GameController : MonoBehaviour
     public int money;
     public TextMeshProUGUI moneyTXT;
     public TextMeshProUGUI healthTXT;
+    public TextMeshProUGUI ammoTXT;
     Player player1;
+    Shoot shoot1;
+
     public void Awake()
     {
         if (instance == null)
@@ -27,8 +30,10 @@ public class GameController : MonoBehaviour
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        shoot1 = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Shoot>();
         UpdateMoneyTXT();
         UpdateHealthTXT();
+        UpdateammoTXT();
     }
 
     // Update is called once per frame
@@ -60,6 +65,13 @@ public class GameController : MonoBehaviour
     {
         moneyTXT.text = money.ToString() + "$";
     }
+    public void UpdateammoTXT()
+    {
+        ammoTXT.text = shoot1.magSize.ToString();
+   
+    }
+    
+
 
 
 }

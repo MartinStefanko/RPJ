@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer player;
     [SerializeField]
     private Camera sceneCamera;
-    public static Player instance;
+   
        
 
 

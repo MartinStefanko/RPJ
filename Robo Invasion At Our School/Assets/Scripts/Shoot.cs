@@ -17,7 +17,7 @@ public class Shoot : MonoBehaviour
     private float fireRate = 1f;
 
     private float nextFire = 1f;
-    private float magSize = 17f;
+    public float magSize = 17f;
 
     private float time = 0f;
     private float timeDelay = 3f;
@@ -30,6 +30,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Check if magazine is empty if so reload
         if (magSize == 0)
         {
@@ -41,6 +42,7 @@ public class Shoot : MonoBehaviour
         {
             anim.SetTrigger("Shoot");
             Fire();
+            GameController.instance.UpdateammoTXT();
         }
 
     }
@@ -57,12 +59,16 @@ public class Shoot : MonoBehaviour
 
     void Reload()
     {
+        
         // Wait for 3 seconds then set magSize to 17
         time = time + 1f * Time.deltaTime;
         if (time >= timeDelay)
         {
             time = 0f;
             magSize = 17;
+            
         }
+        GameController.instance.UpdateammoTXT();
+
     }
 }

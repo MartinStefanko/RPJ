@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Void
   - Bullet
+  - Shoot
   layers:
   - Default
   - TransparentFX
