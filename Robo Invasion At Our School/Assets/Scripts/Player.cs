@@ -15,10 +15,21 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Camera sceneCamera;
 
+    
+    [SerializeField]
+    private int health;
+
+    private bool hit=true;
+
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
+    private Animator animHitbox;
 
+    void Awake()
+    {
+        animHitbox = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -52,4 +63,24 @@ public class Player : MonoBehaviour
         anim.SetFloat("AnimMoveY", mousePosition.y);
         anim.SetFloat("AnimMoveMagnitude", moveDirection.magnitude);
     }
+
+    IEnumerator HitBoxOff()
+    {
+        hit = false;
+        animHitbox.SetTrigger("Hit");
+        yield return new WaitForSeconds(1.5f);
+        hit = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == "Enemy")
+        {   
+            if (hit){
+                StartCoroutine(HitBoxOff()); 
+                health--;
+            }
+        }
+    }
+     
 }

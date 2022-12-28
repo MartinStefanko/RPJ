@@ -22,14 +22,6 @@ public class Bullet : MonoBehaviour
         }
          
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-        {
-        if (collision.gameObject.GetComponent<HealthSystemMeleeEnemy>() != null)
-        {
-            HealthSystemMeleeEnemy _healthSystem = collision.gameObject.GetComponent<HealthSystemMeleeEnemy>();
-            _healthSystem.TakeDamage(damage);
-        }
-        Destroy(gameObject);
-        }
+   
 
 }
