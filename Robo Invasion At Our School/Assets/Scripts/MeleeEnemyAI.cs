@@ -115,7 +115,7 @@ public class MeleeEnemyAI : MonoBehaviour
         }
         
 
-        if (target.tag == "Player")
+        if (other.tag == "Player")
         {
             if (hit)
             {
