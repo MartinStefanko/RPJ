@@ -28,6 +28,9 @@ public class MeleeEnemyAI : MonoBehaviour
     private GameObject bullet;
 
     private bool hit = true;
+    private bool condition = true;
+    [SerializeField]
+    private CapsuleCollider2D colider;
 
     private void Start()
     {
@@ -90,15 +93,17 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void MoveCharacter(Vector2 dir)
     {
-        rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
-
-    }
-    IEnumerator HitBoxOff()
+        if (condition)
         {
-        hit = false;
-        anim.SetTrigger("Hit");
+            rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+        }
+    }
+    IEnumerator Wait()
+        {
+        
         yield return new WaitForSeconds(1.5f);
-        hit = true;
+   
+        Destroy(gameObject);
         }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -108,10 +113,13 @@ public class MeleeEnemyAI : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            
-            Destroy(gameObject);
+            colider.GetComponent<CapsuleCollider2D>().enabled = false;
+            condition = false;
+            anim.SetTrigger("Death");
             GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
+            StartCoroutine(Wait());
+            
         }
         
 
