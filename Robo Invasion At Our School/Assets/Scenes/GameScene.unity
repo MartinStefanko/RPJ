@@ -17616,6 +17616,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2549487974565308970, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
+      propertyPath: m_Size.x
+      value: 0.54003817
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549487974565308970, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7112197
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549487974565308970, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00201727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2549487974565308970, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.15571877
+      objectReference: {fileID: 0}
     - target: {fileID: 2549487974565308971, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
       propertyPath: maxHealth
       value: 3
@@ -17624,17 +17640,21 @@ PrefabInstance:
       propertyPath: checkRadius
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2549487974565308971, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
+      propertyPath: attackRadius
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2549487974565308974, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2549487974565308974, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.98
+      value: -7.49
       objectReference: {fileID: 0}
     - target: {fileID: 2549487974565308974, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.18
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 2549487974565308974, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
       propertyPath: m_LocalPosition.z

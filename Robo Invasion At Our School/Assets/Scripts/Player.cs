@@ -69,9 +69,12 @@ public class Player : MonoBehaviour
     IEnumerator HitBoxOff()
     {
         hit = false;
-        animHitbox.SetTrigger("Hit");
+        animHitbox.SetTrigger("Hit"); GameController.instance.UpdateHealthTXT();
         yield return new WaitForSeconds(1.5f);
+        
         hit = true;
+       
+        
     }
 
     void OnTriggerEnter2D(Collider2D target)
@@ -81,7 +84,7 @@ public class Player : MonoBehaviour
             if (hit){
                 StartCoroutine(HitBoxOff()); 
                 health--;
-                GameController.instance.UpdateHealthTXT();
+                
             }
         }
     }

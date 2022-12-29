@@ -27,6 +27,8 @@ public class MeleeEnemyAI : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
 
+    private bool hit = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,9 +56,14 @@ public class MeleeEnemyAI : MonoBehaviour
         // If the player is in attack range stop the enemy
         if (isInAttackRange)
         {
-            rb.velocity = Vector2.zero;
+           
+          
         }
     }
+
+   
+
+   
 
     private void RunAttackCheck()
     {
@@ -86,7 +93,13 @@ public class MeleeEnemyAI : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
 
     }
-
+    IEnumerator HitBoxOff()
+        {
+        hit = false;
+        anim.SetTrigger("Hit");
+        yield return new WaitForSeconds(1.5f);
+        hit = true;
+        }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Bullet"))
@@ -100,7 +113,18 @@ public class MeleeEnemyAI : MonoBehaviour
             GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
         }
+        
+
+        if (target.tag == "Player")
+        {
+            if (hit)
+            {
+                //StartCoroutine(HitBoxOff());
+                anim.SetTrigger("Hit");
+
+            }
         }
+    }
 
     }
 
