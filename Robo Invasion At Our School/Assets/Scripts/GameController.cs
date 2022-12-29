@@ -8,11 +8,12 @@ public class GameController : MonoBehaviour
 
     public static GameController instance = null;
     public GameObject shopMenu;
- 
+    public GameObject notification;
     public int money;
     public TextMeshProUGUI moneyTXT;
     public TextMeshProUGUI healthTXT;
     public TextMeshProUGUI ammoTXT;
+    public TextMeshProUGUI NotificationTXT;
     Player player1;
     Shoot shoot1;
 
@@ -46,16 +47,16 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0;
         shopMenu.SetActive(true);
-        
-       
+        notification.SetActive(false);
+
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
         shopMenu.SetActive(false);
-        
-   
+        notification.SetActive(true);
+
     }
     public void UpdateHealthTXT() {
         healthTXT.text = player1.health.ToString();
@@ -70,7 +71,16 @@ public class GameController : MonoBehaviour
         ammoTXT.text = shoot1.magSize.ToString();
    
     }
-    
+    public void NotifícationVisible()
+    {
+        notification.SetActive(true);
+    }
+    public void NotifícationNonVisible()
+    {
+        notification.SetActive(false);
+    }
+
+
 
 
 

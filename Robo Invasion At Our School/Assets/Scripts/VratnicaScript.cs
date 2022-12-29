@@ -30,6 +30,7 @@ public class VratnicaScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
+            gamecontrol.NotifícationVisible();
         }
     }
 
@@ -38,6 +39,7 @@ public class VratnicaScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
+            gamecontrol.NotifícationNonVisible();
         }
     }
 }

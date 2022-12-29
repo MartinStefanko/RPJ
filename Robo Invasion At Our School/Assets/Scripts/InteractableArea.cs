@@ -16,7 +16,15 @@ public class InteractableArea : MonoBehaviour
 
     private bool isInRange;
     private bool fadeOut = false;
+    GameController gamecontrol;
+    [SerializeField]
+    private CircleCollider2D other;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        gamecontrol = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
 
     void Update()
     {
@@ -45,6 +53,8 @@ public class InteractableArea : MonoBehaviour
     {
         door.DoorOpen();
         collider.enabled = false;
+        gamecontrol.NotifícationNonVisible();
+        other.GetComponent<CircleCollider2D>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +62,7 @@ public class InteractableArea : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
+            gamecontrol.NotifícationVisible();
         }
     }
 
@@ -60,6 +71,7 @@ public class InteractableArea : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
+            gamecontrol.NotifícationNonVisible();
         }
     }
 }
