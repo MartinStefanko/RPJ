@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MeleeEnemyAI : MonoBehaviour
 {
-    public float speed;
     public float checkRadius;
-    public float attackRadius;
-    public float maxHealth = 10;
-    float currentHealth;
+    public float currentHealth = 3;
    
 
-    public bool shouldRotate;
 
     public  LayerMask whatIsPlayer;
 
     private Transform target;
-    private Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
     public Vector3 dir;
+    NavMeshAgent agent;
 
     private bool isInChaseRange;
     private bool isInAttackRange;
@@ -28,23 +25,27 @@ public class MeleeEnemyAI : MonoBehaviour
     private GameObject bullet;
 
     private bool hit = true;
-    private bool condition = true;
+    private bool alive = true;
     [SerializeField]
     private CapsuleCollider2D colider;
 
+
+
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
-        currentHealth = maxHealth;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     private void Update()
     {
         RunAttackCheck();
 
-        Movement();
+        Rotate();
         
     }
 
@@ -54,14 +55,14 @@ public class MeleeEnemyAI : MonoBehaviour
         // If the conditions are true move the enemy
         if (isInChaseRange && !isInAttackRange)
         {
+            agent.isStopped = false;
             MoveCharacter(movement);
         }
-        // If the player is in attack range stop the enemy
-        if (isInAttackRange)
+        else
         {
-           
-          
+            agent.isStopped = true;
         }
+        
     }
 
    
@@ -75,27 +76,25 @@ public class MeleeEnemyAI : MonoBehaviour
         if(!isInChaseRange)
             isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
 
-        isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
+        //isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
     }
 
-    private void Movement()
+    private void Rotate()
     {
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
         movement = dir;
-        if (shouldRotate)
-        {
-            anim.SetFloat("AnimMoveX", dir.x);
-            anim.SetFloat("AnimMoveY", dir.y);
-        }
+        anim.SetFloat("AnimMoveX", dir.x);
+        anim.SetFloat("AnimMoveY", dir.y);
+        
     }
 
     private void MoveCharacter(Vector2 dir)
     {
-        if (condition)
+        if (alive)
         {
-            rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
+            agent.SetDestination(target.position);
         }
     }
     IEnumerator Wait()
@@ -111,10 +110,10 @@ public class MeleeEnemyAI : MonoBehaviour
     {      currentHealth -= 1;
           
         }
-        if (currentHealth <= 0)
+        if (currentHealth == 0)
         {
             colider.GetComponent<CapsuleCollider2D>().enabled = false;
-            condition = false;
+            alive = false;
             anim.SetTrigger("Death");
             GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
