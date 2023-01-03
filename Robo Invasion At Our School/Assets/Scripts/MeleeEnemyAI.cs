@@ -14,12 +14,10 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private Transform target;
     private Animator anim;
-    private Vector2 movement;
     public Vector3 dir;
     NavMeshAgent agent;
 
     private bool isInChaseRange;
-    private bool isInAttackRange;
 
     [SerializeField]
     private GameObject bullet;
@@ -43,7 +41,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void Update()
     {
-        RunAttackCheck();
+        DistanceCheck();
 
         Rotate();
         
@@ -53,10 +51,10 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         // Check if enemy is in chase range and if it isn't in attack range
         // If the conditions are true move the enemy
-        if (isInChaseRange && !isInAttackRange)
+        if (isInChaseRange)
         {
             agent.isStopped = false;
-            MoveCharacter(movement);
+            MoveCharacter();
         }
         else
         {
@@ -69,7 +67,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
    
 
-    private void RunAttackCheck()
+    private void DistanceCheck()
     {
         anim.SetBool("IsRunning", isInChaseRange);
 
@@ -84,26 +82,26 @@ public class MeleeEnemyAI : MonoBehaviour
         dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         dir.Normalize();
-        movement = dir;
         anim.SetFloat("AnimMoveX", dir.x);
         anim.SetFloat("AnimMoveY", dir.y);
         
     }
 
-    private void MoveCharacter(Vector2 dir)
+    private void MoveCharacter()
     {
         if (alive)
         {
             agent.SetDestination(target.position);
         }
     }
+
     IEnumerator Wait()
-        {
-        
+    {
         yield return new WaitForSeconds(1.5f);
-   
+
         Destroy(gameObject);
-        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Bullet"))

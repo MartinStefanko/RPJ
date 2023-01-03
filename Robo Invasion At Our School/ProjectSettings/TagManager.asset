@@ -9,6 +9,8 @@ TagManager:
   - Void
   - Bullet
   - Shoot
+  - FriendlyNPC
+  - FriendlyCol
   layers:
   - Default
   - TransparentFX
