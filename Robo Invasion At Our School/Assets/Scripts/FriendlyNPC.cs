@@ -10,6 +10,7 @@ public class FriendlyNPC : MonoBehaviour
     public Vector3 dir;
     NavMeshAgent agent;
     GameController gameController;
+    private bool isInRange;
 
     private bool followPlayer = false;
 
@@ -46,6 +47,17 @@ public class FriendlyNPC : MonoBehaviour
         }
 
         Rotate();
+
+        if (isInRange)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+               
+                followPlayer = true;
+                safeZone.SetActive(true);
+                gameController.NotifícationNonVisible();
+            }
+        }
     }
 
     private void Rotate()
@@ -65,12 +77,7 @@ public class FriendlyNPC : MonoBehaviour
             if (!followPlayer)
                 gameController.NotifícationVisible();
 
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                followPlayer = true;
-                safeZone.SetActive(true);
-            }
+            isInRange = true;
         }
     }
 
@@ -78,6 +85,7 @@ public class FriendlyNPC : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            isInRange = false;
             gameController.NotifícationNonVisible();
         }
     }
