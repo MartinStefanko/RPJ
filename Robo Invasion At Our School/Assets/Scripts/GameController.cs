@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour
     public static GameController instance = null;
     public GameObject shopMenu;
     public GameObject notification;
+    public GameObject pauseMenu;
     public int money;
     public TextMeshProUGUI moneyTXT;
     public TextMeshProUGUI healthTXT;
@@ -16,13 +18,12 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI NotificationTXT;
     Player player1;
     Shoot shoot1;
-
-    public void Awake()
+        public void Awake()
     {
         if (instance == null)
         {
             instance = this;
-        }else if(instance!= null)
+        } else if (instance != null)
         {
             Destroy(gameObject);
         }
@@ -40,7 +41,13 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            PauseMenu();
+
+
+        }
     }
 
     public void Shop()
@@ -56,11 +63,12 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         shopMenu.SetActive(false);
         notification.SetActive(true);
+        
 
     }
     public void UpdateHealthTXT() {
         healthTXT.text = player1.health.ToString();
-        
+
     }
     public void UpdateMoneyTXT()
     {
@@ -69,7 +77,7 @@ public class GameController : MonoBehaviour
     public void UpdateammoTXT()
     {
         ammoTXT.text = shoot1.magSize.ToString();
-   
+
     }
     public void NotifícationVisible()
     {
@@ -78,6 +86,28 @@ public class GameController : MonoBehaviour
     public void NotifícationNonVisible()
     {
         notification.SetActive(false);
+    }
+
+    public void PauseMenu()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+
+        
+    }
+    public void PauseMenuResume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        pauseMenu.SetActive(false); Time.timeScale = 1;
     }
 
 
