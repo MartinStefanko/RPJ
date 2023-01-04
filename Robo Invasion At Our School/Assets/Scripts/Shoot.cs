@@ -37,14 +37,15 @@ public class Shoot : MonoBehaviour
             Reload();
         }
 
-        // Check if LMB is being pressed and timer to avoid rapid shooting
-        if (Input.GetMouseButtonDown(0) && Time.time > nextFire && magSize > 0)
+        if (!GameController.isPaused && !GameController.shopIsOpened) { 
+            // Check if LMB is being pressed and timer to avoid rapid shooting
+            if (Input.GetMouseButtonDown(0) && Time.time > nextFire && magSize > 0)
         {
             anim.SetTrigger("Shoot");
             Fire();
             GameController.instance.UpdateammoTXT();
         }
-
+       }
     }
 
     void Fire()

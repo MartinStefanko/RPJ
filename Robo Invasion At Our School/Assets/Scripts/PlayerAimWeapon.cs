@@ -14,7 +14,9 @@ public class PlayerAimWeapon : MonoBehaviour
 
     void Update()
     {
-        Aiming();
+        if (!GameController.isPaused && !GameController.shopIsOpened) { 
+            Aiming();
+        }
     }
 
     void Aiming()

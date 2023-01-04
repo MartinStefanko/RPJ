@@ -16,6 +16,13 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI healthTXT;
     public TextMeshProUGUI ammoTXT;
     public TextMeshProUGUI NotificationTXT;
+
+
+    public static bool isPaused;
+    public static bool shopIsOpened;
+    public static bool cantPause;
+    public static bool cantOpenShop;
+
     Player player1;
     Shoot shoot1;
         public void Awake()
@@ -41,10 +48,20 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!cantPause) { 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
-            PauseMenu();
+            if (isPaused)
+            {
+                
+                PauseMenuResume();
+            }
+            else
+            {
+                    PauseMenu();
+            }
+         }
 
 
         }
@@ -55,7 +72,8 @@ public class GameController : MonoBehaviour
         Time.timeScale = 0;
         shopMenu.SetActive(true);
         notification.SetActive(false);
-
+        shopIsOpened = true;
+        cantPause = true;
     }
 
     public void Resume()
@@ -63,7 +81,8 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         shopMenu.SetActive(false);
         notification.SetActive(true);
-        
+        shopIsOpened = false;
+        cantPause = false;
 
     }
     public void UpdateHealthTXT() {
@@ -92,6 +111,8 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
+        isPaused = true;
+        cantOpenShop = true;
 
         
     }
@@ -99,7 +120,10 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+        isPaused = false;
+        cantOpenShop = false;
     }
+
     public void QuitGame()
     {
         Application.Quit();

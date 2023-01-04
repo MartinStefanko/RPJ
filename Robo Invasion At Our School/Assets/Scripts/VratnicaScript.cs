@@ -16,6 +16,7 @@ public class VratnicaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameController.cantOpenShop) { 
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (isInRange)
@@ -24,6 +25,7 @@ public class VratnicaScript : MonoBehaviour
                 gamecontrol.Shop();
             }
         }
+      }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

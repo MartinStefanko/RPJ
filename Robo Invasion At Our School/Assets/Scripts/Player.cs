@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private Vector2 mousePosition;
 
     private Animator animHitbox;
-
+      
     void Awake()
     {
         animHitbox = GetComponent<Animator>();
@@ -35,8 +35,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
-        Animate();
+        if (!GameController.isPaused && !GameController.shopIsOpened) { 
+            ProcessInputs();
+            Animate();
+        }
     }
 
     private void FixedUpdate()
