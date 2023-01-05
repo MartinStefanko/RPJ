@@ -26796,6 +26796,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 293286580, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2549487974565308960, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy

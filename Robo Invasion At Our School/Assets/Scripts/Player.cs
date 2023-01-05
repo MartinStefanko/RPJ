@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
-    private Animator anim;
+    public Animator anim;
     [SerializeField]
     private SpriteRenderer player;
     [SerializeField]
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.isPaused && !GameController.shopIsOpened) { 
+        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead ) { 
             ProcessInputs();
             Animate();
         }

@@ -68,7 +68,7 @@ public class MeleeEnemyAI : MonoBehaviour
    
 
     private void DistanceCheck()
-    {
+    {   
         anim.SetBool("IsRunning", isInChaseRange);
 
         if(!isInChaseRange)
@@ -89,7 +89,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void MoveCharacter()
     {
-        if (alive)
+        if (alive&&!GameController.isDead)
         {
             agent.SetDestination(target.position);
         }

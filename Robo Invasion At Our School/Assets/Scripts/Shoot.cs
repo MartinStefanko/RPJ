@@ -37,7 +37,7 @@ public class Shoot : MonoBehaviour
             Reload();
         }
 
-        if (!GameController.isPaused && !GameController.shopIsOpened) { 
+        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead) { 
             // Check if LMB is being pressed and timer to avoid rapid shooting
             if (Input.GetMouseButtonDown(0) && Time.time > nextFire && magSize > 0)
         {
