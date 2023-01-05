@@ -21,6 +21,7 @@ public class SafeZone : MonoBehaviour
         if (collision.gameObject.CompareTag("FriendlyCol"))
         {
             Destroy(GameObject.FindWithTag("FriendlyNPC"));
+            gameObject.SetActive(false);
         }
 
        
