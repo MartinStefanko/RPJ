@@ -89,7 +89,6 @@ public class GameController : MonoBehaviour
         }
         if (player1.health == 0)
         {
-            
             isDead = true;
             StartCoroutine(Wait());
         }
@@ -99,8 +98,8 @@ public class GameController : MonoBehaviour
     IEnumerator Wait()
         {
             yield return new WaitForSeconds(0.5f);
-        DeathMenu();
-        Time.timeScale = 0;
+            DeathMenu();
+            Time.timeScale = 0;
 
     }
 
