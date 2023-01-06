@@ -14,8 +14,9 @@ public class Player : MonoBehaviour
     private SpriteRenderer player;
     [SerializeField]
     private Camera sceneCamera;
-   
-       
+    [SerializeField]
+    private AudioSource runAudio; 
+    
 
 
     [SerializeField]
@@ -51,9 +52,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GameController.isDead) { 
-              Move();
-           }
+        if (!GameController.isDead) 
+        {
+            Move();
+        }
+        RunningSound();
+
     }
 
     void ProcessInputs()
@@ -103,5 +107,19 @@ public class Player : MonoBehaviour
             }
         }
     }
-     
+
+    void RunningSound()
+    {
+        // Check if player is moving
+        if (rb.velocity.x != 0 || rb.velocity.y != 0)
+        {
+            // Check if audio is playing if not play the audio
+            if (!runAudio.isPlaying)
+                runAudio.Play();
+        }
+        // If player isn't moving stop the audio
+        else
+            runAudio.Stop();
+    }
+
 }

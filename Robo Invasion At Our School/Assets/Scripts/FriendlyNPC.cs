@@ -17,6 +17,8 @@ public class FriendlyNPC : MonoBehaviour
 
     [SerializeField]
     private GameObject safeZone;
+    [SerializeField]
+    private AudioSource runAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -36,15 +38,21 @@ public class FriendlyNPC : MonoBehaviour
     {
         if (followPlayer)
         {
-            anim.SetBool("IsRunning", true);
-            agent.SetDestination(target.position);
-
-            if(agent.remainingDistance <= agent.stoppingDistance)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 anim.SetBool("IsRunning", false);
+                runAudio.Stop();
             }
             else
+            {
                 anim.SetBool("IsRunning", true);
+                if (!runAudio.isPlaying)
+                    runAudio.Play();
+            }
+
+            agent.SetDestination(target.position);
+
+            
         }
 
         Rotate();

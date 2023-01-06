@@ -12,6 +12,10 @@ public class Shoot : MonoBehaviour
     private Transform firePoint;
     [SerializeField]
     private float fireForce;
+    [SerializeField]
+    private AudioSource gunShotAudio;
+    [SerializeField]
+    private AudioSource reloadAudio;
 
     [SerializeField]
     private float fireRate = 1f;
@@ -20,7 +24,9 @@ public class Shoot : MonoBehaviour
     public float magSize = 17f;
 
     private float time = 0f;
-    private float timeDelay = 3f;
+    private float timeDelay = 2.5f;
+
+    private bool reloading = false;
 
     void Start()
     {
@@ -32,20 +38,26 @@ public class Shoot : MonoBehaviour
     {
 
         // Check if magazine is empty if so reload
-        if (magSize == 0)
+        if (magSize == 0 || Input.GetKeyDown(KeyCode.R))
         {
-            Reload();
+            if (!reloadAudio.isPlaying)
+                reloadAudio.Play();
+
+            reloading = true;
+            Invoke("Reload", 2.5f);
         }
 
-        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead) { 
-            // Check if LMB is being pressed and timer to avoid rapid shooting
-            if (Input.GetMouseButtonDown(0) && Time.time > nextFire && magSize > 0)
+        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead)
         {
-            anim.SetTrigger("Shoot");
-            Fire();
-            GameController.instance.UpdateammoTXT();
+            // Check if LMB is being pressed and timer to avoid rapid shooting
+            if (Input.GetMouseButtonDown(0) && Time.time > nextFire && magSize > 0 && !reloading)
+            {
+                anim.SetTrigger("Shoot");
+                Fire();
+                gunShotAudio.Play();
+                GameController.instance.UpdateammoTXT();
+            }
         }
-       }
     }
 
     void Fire()
@@ -60,16 +72,10 @@ public class Shoot : MonoBehaviour
 
     void Reload()
     {
-        
-        // Wait for 3 seconds then set magSize to 17
-        time = time + 1f * Time.deltaTime;
-        if (time >= timeDelay)
-        {
-            time = 0f;
-            magSize = 17;
-            
-        }
+
+        magSize = 17;
         GameController.instance.UpdateammoTXT();
+        reloading = false;
 
     }
     public void DestroyWeapon()

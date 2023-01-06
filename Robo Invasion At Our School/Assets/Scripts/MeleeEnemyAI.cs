@@ -22,6 +22,13 @@ public class MeleeEnemyAI : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
 
+    [SerializeField]
+    private AudioSource hitAudio01;
+    [SerializeField]
+    private AudioSource hitAudio02;
+    [SerializeField]
+    private AudioSource hitAudio03;
+
     private bool hit = true;
     private bool alive = true;
     [SerializeField]
@@ -109,9 +116,25 @@ public class MeleeEnemyAI : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Bullet"))
-    {      currentHealth -= 1;
-          
+        {
+            currentHealth -= 1;
+
+            int randNum = Random.Range(1, 3);
+            switch (randNum)
+            {
+                case 1:
+                    hitAudio01.Play();
+                    break;
+                case 2:
+                    hitAudio02.Play();
+                    break;
+                case 3:
+                    hitAudio03.Play();
+                    break;
+            }
+
         }
+
         if (currentHealth == 0)
         {
             colider.GetComponent<CapsuleCollider2D>().enabled = false;
