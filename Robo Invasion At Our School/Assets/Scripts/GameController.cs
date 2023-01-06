@@ -17,9 +17,11 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI healthTXT;
     public TextMeshProUGUI ammoTXT;
     public TextMeshProUGUI NotificationTXT;
+    public TextMeshProUGUI teacher;
 
-    [SerializeField]
-    private Animator anim;
+    public GameObject aimCursor;
+
+
 
     public float timer, refresh, avgFramerate;
     public string display = "{0} FPS";
@@ -31,6 +33,9 @@ public class GameController : MonoBehaviour
     public static bool cantOpenShop;
     public static bool fps = true;
     public static bool isDead;
+
+    public GameObject notificationTeacher;
+
 
     Player player1;
     Shoot shoot1;
@@ -49,18 +54,20 @@ public class GameController : MonoBehaviour
     {
         player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         shoot1 = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Shoot>();
-        anim = GetComponent<Animator>();
+       
         UpdateMoneyTXT();
         UpdateHealthTXT();
         UpdateammoTXT();
         isDead = false;
         Time.timeScale = 1;
+        FriendlyNPC.counter = 0;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         UpdateHealthTXT();
+        RescueTeachears();
         if (!cantPause) {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -89,7 +96,11 @@ public class GameController : MonoBehaviour
         }
         if (player1.health == 0)
         {
+
+
+            player1.anim.SetTrigger("dead");
             isDead = true;
+            shoot1.DestroyWeapon();
             StartCoroutine(Wait());
         }
         
@@ -97,9 +108,11 @@ public class GameController : MonoBehaviour
     }
     IEnumerator Wait()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.6f);
             DeathMenu();
-            Time.timeScale = 0;
+        
+
+
 
     }
 
@@ -127,6 +140,9 @@ public class GameController : MonoBehaviour
         shopIsOpened = true;
         cantPause = true;
         fps = false;
+        Cursor.visible = true;
+        aimCursor.SetActive(false);
+
     }
 
     public void Resume()
@@ -137,6 +153,8 @@ public class GameController : MonoBehaviour
         shopIsOpened = false;
         cantPause = false;
         fps = true;
+        Cursor.visible = false;
+        aimCursor.SetActive(true);
     }
     public void UpdateHealthTXT() {
         healthTXT.text = player1.health.ToString();
@@ -167,6 +185,8 @@ public class GameController : MonoBehaviour
         isPaused = true;
         cantOpenShop = true;
         fps = false;
+        Cursor.visible = true;
+        aimCursor.SetActive(false);
 
 
     }
@@ -177,6 +197,8 @@ public class GameController : MonoBehaviour
         isPaused = false;
         cantOpenShop = false;
         fps = true;
+        Cursor.visible = false;
+        aimCursor.SetActive(true);
     }
 
     public void QuitGame()
@@ -193,6 +215,8 @@ public class GameController : MonoBehaviour
     {
         deathMenu.SetActive(true);
         Time.timeScale = 0;
+        Cursor.visible = true;
+        aimCursor.SetActive(false);
     }
 
     public void RestartGameLevel1()
@@ -200,6 +224,22 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("GameScene");
         deathMenu.SetActive(false);
     }
+
+    public void RescueTeachears()
+    {
+        teacher.text = "Rescue teachers: "+FriendlyNPC.counter.ToString()+"/1";
+    }
+    
+    public void NotificationTeacherOn()
+    {
+        notificationTeacher.SetActive(true);
+    }
+    public void NotificationTeacherOff()
+    {
+        notificationTeacher.SetActive(false);
+    }
+
+
 
 
 

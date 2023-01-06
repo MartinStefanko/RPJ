@@ -72,4 +72,8 @@ public class Shoot : MonoBehaviour
         GameController.instance.UpdateammoTXT();
 
     }
+    public void DestroyWeapon()
+    {
+        Destroy(gameObject);
+    }
 }

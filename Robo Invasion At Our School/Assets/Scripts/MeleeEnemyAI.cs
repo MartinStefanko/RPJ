@@ -26,7 +26,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private bool alive = true;
     [SerializeField]
     private CapsuleCollider2D colider;
-
+    public static int counter = 0;
 
 
     private void Start()
@@ -42,8 +42,10 @@ public class MeleeEnemyAI : MonoBehaviour
     private void Update()
     {
         DistanceCheck();
-
-        Rotate();
+        if (alive) {
+           Rotate();
+        }
+       
         
     }
 
@@ -89,10 +91,12 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private void MoveCharacter()
     {
-        if (alive&&!GameController.isDead)
+        if (alive)
         {
+           
             agent.SetDestination(target.position);
         }
+        
     }
 
     IEnumerator Wait()
@@ -115,6 +119,7 @@ public class MeleeEnemyAI : MonoBehaviour
             anim.SetTrigger("Death");
             GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
+            counter++;
             StartCoroutine(Wait());
             
         }

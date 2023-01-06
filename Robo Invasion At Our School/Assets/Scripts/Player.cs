@@ -35,29 +35,42 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead ) { 
+        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead) {
             ProcessInputs();
             Animate();
+
         }
+        else
+        {
+            rb.Sleep();
+        }
+
+       
+      
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (!GameController.isDead) { 
+              Move();
+           }
     }
 
     void ProcessInputs()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
 
-        // Check for mouse position
-        moveDirection = new Vector2(moveX, moveY).normalized;
-        mousePosition = sceneCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            // Check for mouse position
+            moveDirection = new Vector2(moveX, moveY).normalized;
+            mousePosition = sceneCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        
+        
     }
     
     void Move()
-    {
+    {   
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
@@ -65,7 +78,7 @@ public class Player : MonoBehaviour
     {
         anim.SetFloat("AnimMoveX", mousePosition.x);
         anim.SetFloat("AnimMoveY", mousePosition.y);
-        anim.SetFloat("AnimMoveMagnitude", moveDirection.magnitude);
+        anim.SetFloat("AnimMoveMagnitude", moveDirection.magnitude);  
     }
 
     IEnumerator HitBoxOff()

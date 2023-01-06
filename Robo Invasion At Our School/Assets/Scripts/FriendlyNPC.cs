@@ -13,6 +13,7 @@ public class FriendlyNPC : MonoBehaviour
     private bool isInRange;
 
     private bool followPlayer = false;
+    public static int counter = 0;
 
     [SerializeField]
     private GameObject safeZone;
@@ -56,6 +57,8 @@ public class FriendlyNPC : MonoBehaviour
                 followPlayer = true;
                 safeZone.SetActive(true);
                 gameController.NotifícationNonVisible();
+                gameController.NotificationTeacherOn();
+
             }
         }
     }
@@ -76,6 +79,7 @@ public class FriendlyNPC : MonoBehaviour
 
             if (!followPlayer)
                 gameController.NotifícationVisible();
+                
 
             isInRange = true;
         }
