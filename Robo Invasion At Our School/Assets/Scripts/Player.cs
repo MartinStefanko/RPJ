@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Camera sceneCamera;
     [SerializeField]
-    private AudioSource runAudio; 
+    public AudioSource runAudio; 
     
 
 

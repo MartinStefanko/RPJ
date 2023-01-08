@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour
         fps = false;
         Cursor.visible = true;
         aimCursor.SetActive(false);
+        player1.runAudio.Stop();
 
     }
 
@@ -187,6 +188,7 @@ public class GameController : MonoBehaviour
         fps = false;
         Cursor.visible = true;
         aimCursor.SetActive(false);
+        player1.runAudio.Stop();
 
 
     }
