@@ -27,7 +27,9 @@ public class MeleeEnemyAI : MonoBehaviour
     [SerializeField]
     private AudioSource hitAudio02;
     [SerializeField]
-    private AudioSource hitAudio03;
+    private AudioSource hitAudio03;    
+    [SerializeField]
+    private AudioSource deathAudio;
 
     private bool hit = true;
     private bool alive = true;
@@ -137,6 +139,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            deathAudio.Play();
             colider.GetComponent<CapsuleCollider2D>().enabled = false;
             alive = false;
             anim.SetTrigger("Death");
