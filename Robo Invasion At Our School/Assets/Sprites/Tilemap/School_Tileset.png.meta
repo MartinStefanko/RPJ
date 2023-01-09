@@ -4611,7 +4611,7 @@ TextureImporter:
         serializedVersion: 2
         x: 672
         y: 416
-        width: 32
+        width: 45
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -4630,9 +4630,9 @@ TextureImporter:
       name: School_Tileset_203
       rect:
         serializedVersion: 2
-        x: 704
+        x: 717
         y: 416
-        width: 32
+        width: 19
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -4842,7 +4842,7 @@ TextureImporter:
         serializedVersion: 2
         x: 672
         y: 384
-        width: 32
+        width: 45
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -4861,9 +4861,9 @@ TextureImporter:
       name: School_Tileset_214
       rect:
         serializedVersion: 2
-        x: 704
+        x: 717
         y: 384
-        width: 32
+        width: 19
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
