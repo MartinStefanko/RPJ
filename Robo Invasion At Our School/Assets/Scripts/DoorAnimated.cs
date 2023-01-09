@@ -15,7 +15,8 @@ public class DoorAnimated : MonoBehaviour
 
     public void DoorOpen()
     {
-        doorAudio.Play();
+        if(!doorAudio.isPlaying)
+            doorAudio.Play();
         animator.SetBool("Open", true);
     }
     

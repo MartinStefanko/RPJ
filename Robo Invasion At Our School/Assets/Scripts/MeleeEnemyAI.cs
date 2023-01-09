@@ -34,12 +34,15 @@ public class MeleeEnemyAI : MonoBehaviour
     private bool hit = true;
     private bool alive = true;
     [SerializeField]
-    private CapsuleCollider2D colider;
+    private CapsuleCollider2D collider;
+    [SerializeField]
+    private BoxCollider2D boxCollider;
     public static int counter = 0;
 
 
     private void Start()
     {
+        boxCollider.isTrigger = false;
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
 
@@ -54,6 +57,9 @@ public class MeleeEnemyAI : MonoBehaviour
         if (alive) {
            Rotate();
         }
+        
+      
+        
        
         
     }
@@ -120,7 +126,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if (other.gameObject.tag.Equals("Bullet"))
         {
             currentHealth -= 1;
-
+            Debug.Log(currentHealth);
             int randNum = Random.Range(1, 3);
             switch (randNum)
             {
@@ -140,7 +146,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if (currentHealth == 0)
         {
             deathAudio.Play();
-            colider.GetComponent<CapsuleCollider2D>().enabled = false;
+            collider.GetComponent<CapsuleCollider2D>().enabled = false;
             alive = false;
             anim.SetTrigger("Death");
             GameController.instance.money += 50;
@@ -155,6 +161,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             if (hit)
             {
+                
                 //StartCoroutine(HitBoxOff());
                 anim.SetTrigger("Hit");
 

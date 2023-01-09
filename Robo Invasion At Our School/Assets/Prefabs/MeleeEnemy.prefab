@@ -200,7 +200,8 @@ MonoBehaviour:
   hitAudio02: {fileID: 6406946031205318636}
   hitAudio03: {fileID: 4564784825445890477}
   deathAudio: {fileID: 7527339590256620525}
-  colider: {fileID: 2549487974565308970}
+  collider: {fileID: 2549487974565308970}
+  boxCollider: {fileID: 2549487974565308969}
 --- !u!82 &-8662480111773051058
 AudioSource:
   m_ObjectHideFlags: 0

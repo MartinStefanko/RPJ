@@ -83,6 +83,14 @@ SpriteAtlas:
     - {fileID: -913321849, guid: 9130b6996a5897d4f8063e1e77b0243b, type: 3}
     - {fileID: -1130714914, guid: 9130b6996a5897d4f8063e1e77b0243b, type: 3}
     - {fileID: -182165394, guid: 9130b6996a5897d4f8063e1e77b0243b, type: 3}
+    - {fileID: -1595994337, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: 1850445167, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: 1119718029, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: -306086873, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: 1584916875, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: -358326802, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: -680434581, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: 473187692, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -119,6 +127,14 @@ SpriteAtlas:
   - {fileID: 1135916716, guid: e65b3a919f7910248899f105824d59fb, type: 3}
   - {fileID: -2011525858, guid: e65b3a919f7910248899f105824d59fb, type: 3}
   - {fileID: 1066247416, guid: e65b3a919f7910248899f105824d59fb, type: 3}
+  - {fileID: -680434581, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: 473187692, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: -358326802, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: 1584916875, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: 1850445167, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: -1595994337, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: -306086873, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+  - {fileID: 1119718029, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
   - {fileID: 1078687023, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
   - {fileID: -1864544587, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
   - {fileID: -1218679101, guid: 569560079b9382f45be0ee0b15719eb9, type: 3}
@@ -169,6 +185,14 @@ SpriteAtlas:
   - Edges_5
   - Edges_2
   - Edges_3
+  - Interior Tiles_10
+  - Interior Tiles_11
+  - Interior Tiles_9
+  - Interior Tiles_8
+  - Interior Tiles_5
+  - Interior Tiles_4
+  - Interior Tiles_7
+  - Interior Tiles_6
   - background_vestibul_41
   - background_vestibul_43
   - background_vestibul_42
