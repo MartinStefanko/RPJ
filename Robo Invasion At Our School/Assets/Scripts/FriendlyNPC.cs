@@ -19,6 +19,10 @@ public class FriendlyNPC : MonoBehaviour
     private GameObject safeZone;
     [SerializeField]
     private AudioSource runAudio;
+    [SerializeField]
+    
+    public static bool isAttached;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +56,12 @@ public class FriendlyNPC : MonoBehaviour
 
             agent.SetDestination(target.position);
 
-            
+            if (SafeZone.rescued)
+            {
+                Destroy(gameObject);
+                isAttached = false;
+                SafeZone.rescued = false;
+            }
         }
 
         Rotate();
@@ -61,7 +70,7 @@ public class FriendlyNPC : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-               
+                isAttached = true;
                 followPlayer = true;
                 safeZone.SetActive(true);
                 gameController.NotifícationNonVisible();
@@ -87,7 +96,7 @@ public class FriendlyNPC : MonoBehaviour
 
             if (!followPlayer)
                 gameController.NotifícationVisible();
-                
+
 
             isInRange = true;
         }
@@ -101,5 +110,6 @@ public class FriendlyNPC : MonoBehaviour
             gameController.NotifícationNonVisible();
         }
     }
+    
 
 }

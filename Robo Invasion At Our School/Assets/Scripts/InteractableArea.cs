@@ -20,22 +20,32 @@ public class InteractableArea : MonoBehaviour
     [SerializeField]
     private CircleCollider2D other;
 
+    public GameObject Notication;
+
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        
     }
 
     void Update()
     {
+      
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (isInRange)
+            if (isInRange && !FriendlyNPC.isAttached)
             {
                 // Wait for 0.2 secs before actually openning the door
                 Invoke("OpenDoor", 0.2f);
                 fadeOut = true;
             }
+            if(FriendlyNPC.isAttached && isInRange)
+            {
+                NotificationVisible();
+                StartCoroutine(Wait());
+            }
+            
 
         }
         if (fadeOut)
@@ -48,9 +58,14 @@ public class InteractableArea : MonoBehaviour
             roomHider.GetComponent<Renderer>().material.color = objectColor;
         }
     }
-
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(4f);
+        NotificationNonVisible();
+    }
     private void OpenDoor()
     {
+     
         door.DoorOpen();
         // turn off the collider so objects can pass through
         collider.enabled = false;
@@ -75,6 +90,16 @@ public class InteractableArea : MonoBehaviour
             gameController.NotifícationNonVisible();
         }
     }
+    public void NotificationVisible()
+    {
+        Notication.SetActive(true);
+    }
+
+    public void NotificationNonVisible()
+    {
+        Notication.SetActive(false);
+    }
+
 }
-    
+
 

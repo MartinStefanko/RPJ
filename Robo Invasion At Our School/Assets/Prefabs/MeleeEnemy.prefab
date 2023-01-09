@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkRadius: 7
-  currentHealth: 3
+  currentHealth: 4
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64

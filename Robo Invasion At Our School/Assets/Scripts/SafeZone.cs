@@ -5,16 +5,19 @@ using UnityEngine;
 public class SafeZone : MonoBehaviour
 {
     GameController gameController;
+    public static bool rescued;
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        rescued = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +25,9 @@ public class SafeZone : MonoBehaviour
 
         if (collision.gameObject.CompareTag("FriendlyCol"))
         {
-            Destroy(GameObject.FindWithTag("FriendlyNPC"));
+
+            rescued = true;
+            
             gameObject.SetActive(false);
             FriendlyNPC.counter++;
             gameController.NotificationTeacherOff();
