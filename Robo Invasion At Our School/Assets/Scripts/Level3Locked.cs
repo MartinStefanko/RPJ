@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Level3Locked : MonoBehaviour
 {
     public GameObject notification2;
     public GameObject notificationLevel2;
     public bool level2Completed = false;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,9 @@ public class Level3Locked : MonoBehaviour
             notification2.SetActive(false);
         }
     }
+
+
+    
     public void NotificationLevelCompletedOff()
     {
 
