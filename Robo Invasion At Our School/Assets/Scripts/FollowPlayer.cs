@@ -8,15 +8,8 @@ public class FollowPlayer : MonoBehaviour
     private Transform player;
 
     [SerializeField]
-    private float timeOffset;
-
-    [SerializeField]
     private Camera mainCamera;
 
-    [SerializeField]
-    private float speed = 3f;
-
-    private bool calc = false;
 
     private void Start()
     {
