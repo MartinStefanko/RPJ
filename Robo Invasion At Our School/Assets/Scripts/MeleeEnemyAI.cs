@@ -7,10 +7,10 @@ public class MeleeEnemyAI : MonoBehaviour
 {
     public float checkRadius;
     public float currentHealth = 3;
-   
 
 
-    public  LayerMask whatIsPlayer;
+
+    public LayerMask whatIsPlayer;
 
     private Transform target;
     private Animator anim;
@@ -27,11 +27,10 @@ public class MeleeEnemyAI : MonoBehaviour
     [SerializeField]
     private AudioSource hitAudio02;
     [SerializeField]
-    private AudioSource hitAudio03;    
+    private AudioSource hitAudio03;
     [SerializeField]
     private AudioSource deathAudio;
 
-    private bool hit = true;
     private bool alive = true;
     [SerializeField]
     private CapsuleCollider2D collider;
@@ -54,20 +53,20 @@ public class MeleeEnemyAI : MonoBehaviour
     private void Update()
     {
         DistanceCheck();
-        if (alive) {
-           Rotate();
+        if (alive)
+        {
+            Rotate();
         }
-        
-      
-        
-       
-        
+
+
+
+
+
     }
 
     private void FixedUpdate()
     {
-        // Check if enemy is in chase range and if it isn't in attack range
-        // If the conditions are true move the enemy
+        // Check if enemy is in chase range
         if (isInChaseRange)
         {
             agent.isStopped = false;
@@ -77,21 +76,17 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             agent.isStopped = true;
         }
-        
+
     }
 
-   
-
-   
 
     private void DistanceCheck()
-    {   
+    {
         anim.SetBool("IsRunning", isInChaseRange);
 
-        if(!isInChaseRange)
+        if (!isInChaseRange)
             isInChaseRange = Physics2D.OverlapCircle(transform.position, checkRadius, whatIsPlayer);
 
-        //isInAttackRange = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
     }
 
     private void Rotate()
@@ -101,17 +96,17 @@ public class MeleeEnemyAI : MonoBehaviour
         dir.Normalize();
         anim.SetFloat("AnimMoveX", dir.x);
         anim.SetFloat("AnimMoveY", dir.y);
-        
+
     }
 
     private void MoveCharacter()
     {
         if (alive)
         {
-           
+
             agent.SetDestination(target.position);
         }
-        
+
     }
 
     IEnumerator Wait()
@@ -125,6 +120,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Bullet"))
         {
+            isInChaseRange = true;
             currentHealth -= 1;
             Debug.Log(currentHealth);
             int randNum = Random.Range(1, 3);
@@ -146,30 +142,21 @@ public class MeleeEnemyAI : MonoBehaviour
         if (currentHealth == 0)
         {
             deathAudio.Play();
-            collider.GetComponent<CapsuleCollider2D>().enabled = false;
             alive = false;
             anim.SetTrigger("Death");
             GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
             counter++;
             StartCoroutine(Wait());
-            
-        }
-        
 
-        if (other.tag == "Player")
-        {
-            if (hit)
-            {
-                
-                //StartCoroutine(HitBoxOff());
-                anim.SetTrigger("Hit");
-
-            }
         }
-    }
+
+
+        if (other.tag == "Player" && alive)
+            anim.SetTrigger("Hit");
 
     }
+}
 
 
   

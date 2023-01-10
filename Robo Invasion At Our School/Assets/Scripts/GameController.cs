@@ -100,7 +100,8 @@ public class GameController : MonoBehaviour
 
             player1.anim.SetTrigger("dead");
             isDead = true;
-            shoot1.DestroyWeapon();
+            if(shoot1 != null)
+                shoot1.DestroyWeapon();
             StartCoroutine(Wait());
         }
         
