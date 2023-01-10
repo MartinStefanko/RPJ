@@ -6,22 +6,32 @@ public class FollowPlayer : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
-   
+
     [SerializeField]
     private float timeOffset;
 
+    [SerializeField]
+    private Camera mainCamera;
+
+    [SerializeField]
+    private float speed = 3f;
+
+    private bool calc = false;
+
+    private void Start()
+    {
+    }
 
     void FixedUpdate()
     {
-        // Camera's current position
-        Vector3 startPos = transform.position;
 
-        // Player's current position
-        Vector3 endPos = player.transform.position;
+        Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        endPos.z = -10;
+        Vector2 midPoint = (mouseWorldPosition - player.position) / 2.5f;
+        Vector3 midPointV3 = new Vector3(Mathf.Clamp(midPoint.x, -5.80f, 5.80f),
+                                         Mathf.Clamp(midPoint.y, -3.30f, 3.30f), -10);
 
-        // Camera slowly follows player
-        transform.position = Vector3.Lerp(startPos, endPos, timeOffset * Time.deltaTime);
-    }
+        transform.position = player.position + midPointV3;
+        
+    } 
 }
