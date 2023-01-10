@@ -229,7 +229,13 @@ public class GameController : MonoBehaviour
 
     public void RescueTeachears()
     {
-        teacher.text = "Rescue teachers: "+FriendlyNPC.counter.ToString()+"/1";
+        teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/4";
+        
+        if ( Level2Locked.level1Completed )
+        {
+            teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/6";
+        }
+
     }
     
     public void NotificationTeacherOn()

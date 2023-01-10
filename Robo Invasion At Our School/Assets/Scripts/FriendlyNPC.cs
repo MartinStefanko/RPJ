@@ -14,6 +14,7 @@ public class FriendlyNPC : MonoBehaviour
 
     private bool followPlayer = false;
     public static int counter = 0;
+   
 
     [SerializeField]
     private GameObject safeZone;

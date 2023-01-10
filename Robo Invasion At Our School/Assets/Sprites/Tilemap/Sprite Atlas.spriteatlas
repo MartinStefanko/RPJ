@@ -91,6 +91,7 @@ SpriteAtlas:
     - {fileID: -358326802, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
     - {fileID: -680434581, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
     - {fileID: 473187692, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
+    - {fileID: 2800000, guid: 3b226f36192f26e4d8dfedc68aebd8ea, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -127,6 +128,7 @@ SpriteAtlas:
   - {fileID: 1135916716, guid: e65b3a919f7910248899f105824d59fb, type: 3}
   - {fileID: -2011525858, guid: e65b3a919f7910248899f105824d59fb, type: 3}
   - {fileID: 1066247416, guid: e65b3a919f7910248899f105824d59fb, type: 3}
+  - {fileID: 21300000, guid: 3b226f36192f26e4d8dfedc68aebd8ea, type: 3}
   - {fileID: -680434581, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
   - {fileID: 473187692, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
   - {fileID: -358326802, guid: c83e51d6051a42e4db0165ec37b1b2a7, type: 3}
@@ -185,6 +187,7 @@ SpriteAtlas:
   - Edges_5
   - Edges_2
   - Edges_3
+  - wood
   - Interior Tiles_10
   - Interior Tiles_11
   - Interior Tiles_9
