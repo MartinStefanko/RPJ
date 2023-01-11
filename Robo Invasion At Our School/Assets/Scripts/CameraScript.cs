@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class CameraScript : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
 
     [SerializeField]
     private Camera mainCamera;
-
-
-    private void Start()
-    {
-    }
 
     void FixedUpdate()
     {
@@ -32,7 +27,5 @@ public class FollowPlayer : MonoBehaviour
            transform.position = new Vector3(player.position.x, player.position.y, -10);
         */
 
-
-        Debug.Log("midPoint"+midPoint);
     } 
 }

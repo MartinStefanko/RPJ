@@ -23,9 +23,6 @@ public class Shoot : MonoBehaviour
     private float nextFire = 1f;
     public float magSize = 17f;
 
-    private float time = 0f;
-    private float timeDelay = 2.5f;
-
     private bool reloading = false;
 
     void Start()
