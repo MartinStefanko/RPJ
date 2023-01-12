@@ -13,8 +13,7 @@ public class SettingsMenu : MonoBehaviour
 
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown graphicsDropdown;
-    public Slider musicSlider;
-    public Slider sfxSlider;
+    public Slider volumeSlider;
     public Toggle fullscreenToggle;
     public GameObject checkMark;
     Resolution[] resolutions;
@@ -47,13 +46,8 @@ public class SettingsMenu : MonoBehaviour
 
             resolutionDropdown.value = currectResolutionIndex;
             resolutionDropdown.RefreshShownValue();
-<<<<<<< Updated upstream
         }
-=======
->>>>>>> Stashed changes
 
-        Debug.Log(PlayerPrefs.GetFloat("vol"));
-        Debug.Log(PlayerPrefs.GetFloat("sfx"));
 
     }
     void Update()
@@ -61,14 +55,8 @@ public class SettingsMenu : MonoBehaviour
         //Debug.Log(PlayerPrefs.GetInt("quality"));
         if (PlayerPrefs.GetFloat("vol") != null)
         {
-            audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("vol"));
-            musicSlider.value = PlayerPrefs.GetFloat("vol");
-        }
-        if (PlayerPrefs.GetFloat("sfx") != null)
-        {
-            audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("sfx"));
-            sfxSlider.value = PlayerPrefs.GetFloat("sfx");
-
+            audioMixer.SetFloat("volume", PlayerPrefs.GetFloat("vol"));
+            volumeSlider.value = PlayerPrefs.GetFloat("vol");
         }
         if (PlayerPrefs.GetInt("quality") != null)
         {
@@ -115,14 +103,8 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("Music", volume);
+        audioMixer.SetFloat("volume", volume);
         PlayerPrefs.SetFloat("vol", volume);
-
-    }
-    public void SetSfx(float volume)
-    {
-        audioMixer.SetFloat("SFX", volume);
-        PlayerPrefs.SetFloat("sfx", volume);
 
     }
 
