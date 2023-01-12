@@ -134,6 +134,7 @@ MonoBehaviour:
   roomHider: {fileID: 0}
   fadeSpeed: 2.5
   other: {fileID: 0}
+  Notication: {fileID: 0}
 --- !u!58 &3153566705595317924
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ AudioSource:
   m_GameObject: {fileID: 7280380391381029565}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9170992758917638009, guid: 20aeda3c7d0b05442a38f6a90a732414, type: 2}
   m_audioClip: {fileID: 8300000, guid: b142566057c8bc3418fda1ba64b125b5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5

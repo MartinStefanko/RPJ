@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -19,8 +21,13 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI NotificationTXT;
     public TextMeshProUGUI teacher;
 
-    public GameObject aimCursor;
 
+    public bool settingsOn;
+    public GameObject aimCursor;
+    [SerializeField]
+    public AudioSource musicAudio;
+    public Slider sfxSlider;
+    public Slider musicSlider;
 
 
     public float timer, refresh, avgFramerate;
@@ -33,7 +40,7 @@ public class GameController : MonoBehaviour
     public static bool cantOpenShop;
     public static bool fps = true;
     public static bool isDead;
-
+    public AudioMixer audioMixer;
     public GameObject notificationTeacher;
 
 
@@ -61,6 +68,20 @@ public class GameController : MonoBehaviour
         isDead = false;
         Time.timeScale = 1;
         FriendlyNPC.counter = 0;
+        if (!musicAudio.isPlaying)
+            musicAudio.Play();
+        if (PlayerPrefs.GetFloat("vol") != null)
+        {
+            audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("vol"));
+            musicSlider.value = PlayerPrefs.GetFloat("vol");
+        }
+        if (PlayerPrefs.GetFloat("sfx") != null)
+        {
+            audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("sfx"));
+            sfxSlider.value = PlayerPrefs.GetFloat("sfx");
+
+        }
+        settingsOn = false;
     }
 
     // Update is called once per frame
@@ -68,7 +89,7 @@ public class GameController : MonoBehaviour
     {   
         UpdateHealthTXT();
         RescueTeachears();
-        if (!cantPause) {
+        if (!cantPause&& !settingsOn) {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
 
@@ -115,6 +136,15 @@ public class GameController : MonoBehaviour
 
 
 
+    }
+
+    public void SettingOn()
+    {
+        settingsOn = true;
+    }
+    public void SettingOff()
+    {
+        settingsOn = false;
     }
 
     public void RefreshRate()
