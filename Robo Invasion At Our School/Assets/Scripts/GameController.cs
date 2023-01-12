@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
         } else if (instance != null)
         {
             Destroy(gameObject);
+
         }
     }
     // Start is called before the first frame update
