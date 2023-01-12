@@ -42,11 +42,11 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
 
         if (PlayerPrefs.GetInt("resIndex") == null)
-        { }
+        {
 
             resolutionDropdown.value = currectResolutionIndex;
             resolutionDropdown.RefreshShownValue();
-       
+        }
 
 
     }
