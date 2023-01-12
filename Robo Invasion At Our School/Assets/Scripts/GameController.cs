@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         FriendlyNPC.counter = 0;
         optionsOn = false;
-
+        cantOpenShop = false;
         if (!music.isPlaying)
             music.Play();
 
@@ -246,7 +246,8 @@ public class GameController : MonoBehaviour
         }
         public void MainMenu()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene("MainMenu");
             pauseMenu.SetActive(false); Time.timeScale = 1;
             isPaused = false;
         }

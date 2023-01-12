@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class MeleeEnemyAI : MonoBehaviour
 {
     public float checkRadius;
-    public float currentHealth = 3;
+    public float currentHealth = 4;
 
 
 
@@ -57,7 +57,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             Rotate();
         }
-
+      
 
 
 
@@ -120,6 +120,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Bullet"))
         {
+            Debug.Log(currentHealth);
             isInChaseRange = true;
             currentHealth -= 1;
             Debug.Log(currentHealth);
@@ -148,6 +149,7 @@ public class MeleeEnemyAI : MonoBehaviour
             GameController.instance.UpdateMoneyTXT();
             counter++;
             StartCoroutine(Wait());
+            
 
         }
 
