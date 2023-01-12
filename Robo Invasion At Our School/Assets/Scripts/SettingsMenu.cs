@@ -42,11 +42,11 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
 
         if (PlayerPrefs.GetInt("resIndex") == null)
-        {
+        { }
+
             resolutionDropdown.value = currectResolutionIndex;
             resolutionDropdown.RefreshShownValue();
-        }
-
+       
 
 
     }
@@ -67,27 +67,35 @@ public class SettingsMenu : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("fullscreen") != null)
         {
-            // Debug.Log(PlayerPrefs.GetInt("fullscreen")); 
+             Debug.Log(PlayerPrefs.GetInt("fullscreen")); 
             int value = PlayerPrefs.GetInt("fullscreen");
             if (value == 1) {
-                Screen.fullScreen = true;
+               Screen.fullScreen = true;
                 fullscreenToggle.isOn = true;
             }
             if (value == 0)
             {
                 Screen.fullScreen = false;
                 fullscreenToggle.isOn = false;
-            }
+           }
 
         }
         if (PlayerPrefs.GetInt("resIndex") != null)
         {
-            //Debug.Log(PlayerPrefs.GetInt("resIndex"));
+          // Debug.Log(PlayerPrefs.GetInt("resIndex"));
             Resolution resolution = resolutions[PlayerPrefs.GetInt("resIndex")];
-            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+            int value = PlayerPrefs.GetInt("fullscreen");
+            if (value == 1)
+            {
+               Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.ExclusiveFullScreen);
+            }
+            if (value == 0)
+            {
+                Screen.SetResolution(resolution.width, resolution.height, FullScreenMode.Windowed);
+            }
             resolutionDropdown.value = (PlayerPrefs.GetInt("resIndex"));
             resolutionDropdown.RefreshShownValue();
-        }
+          }
 
 
 
@@ -113,20 +121,17 @@ public class SettingsMenu : MonoBehaviour
     {
         Debug.Log(isFullscreen);
         Screen.fullScreen = isFullscreen;
+
         int a;
         if (isFullscreen) { a = 1; PlayerPrefs.SetInt("fullscreen", a); }
-            if (!isFullscreen) { a = 0; PlayerPrefs.SetInt("fullscreen", a); }
+        if (!isFullscreen) { a = 0; PlayerPrefs.SetInt("fullscreen", a); }
 
-            
-        }
+    }
 
         public void SetResolution(int resolutionIndex) {
             Resolution resolution = resolutions[resolutionIndex];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
             PlayerPrefs.SetInt("resIndex", resolutionIndex);
-
-
-
 
         }
     } 
