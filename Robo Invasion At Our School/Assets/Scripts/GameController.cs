@@ -246,7 +246,8 @@ public class GameController : MonoBehaviour
         }
         public void MainMenu()
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            FriendlyNPC.isAttached = false;
             SceneManager.LoadScene("MainMenu");
             pauseMenu.SetActive(false); Time.timeScale = 1;
             isPaused = false;
