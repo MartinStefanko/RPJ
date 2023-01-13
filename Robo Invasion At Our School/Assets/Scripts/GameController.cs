@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         shoot1 = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Shoot>();
 
