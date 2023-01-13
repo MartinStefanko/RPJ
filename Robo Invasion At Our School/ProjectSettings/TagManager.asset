@@ -11,6 +11,8 @@ TagManager:
   - Shoot
   - FriendlyNPC
   - FriendlyCol
+  - Door
+  - OpenedDoor
   layers:
   - Default
   - TransparentFX

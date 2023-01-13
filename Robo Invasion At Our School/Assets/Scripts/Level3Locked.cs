@@ -12,16 +12,16 @@ public class Level3Locked : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.GetInt("lvl2Completed") == 2)
+            this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (FriendlyNPC.counter == 6 && !level2Completed)
+        if (FriendlyNPC.counter == 6 && PlayerPrefs.GetInt("lvl2Completed") == 0)
         {
-            level2Completed = true;
-            Debug.Log("inside");
+            PlayerPrefs.SetInt("lvl2Completed", 1);
             notificationLevel2.SetActive(true);
             Invoke("NotificationLevelCompletedOff", 2.5f);
 

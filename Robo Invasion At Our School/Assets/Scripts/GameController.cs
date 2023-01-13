@@ -269,7 +269,7 @@ public class GameController : MonoBehaviour
         {
             teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/5";
 
-            if (Level2Locked.level1Completed)
+            if (PlayerPrefs.GetInt("lvl1Completed") == 1)
             {
                 teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/6";
             }

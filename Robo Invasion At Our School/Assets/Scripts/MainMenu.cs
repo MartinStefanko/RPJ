@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()  
+    public void LoadGame()  
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void NewGame()
+    {
+        PlayerPrefs.SetInt("lvl1Completed", 0);
+        PlayerPrefs.SetInt("lvl2Completed", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

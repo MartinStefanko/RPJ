@@ -20,4 +20,8 @@ public class DoorAnimated : MonoBehaviour
         animator.SetBool("Open", true);
     }
     
+    static public void test()
+    {
+        
+    }
 }
