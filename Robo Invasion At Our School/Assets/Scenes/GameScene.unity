@@ -58294,7 +58294,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Are you sure you want to go to setting? Any unsaved progress will be lost!
+  m_text: Are you sure you want to go to main menu? Any unsaved progress will be
+    lost!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a13686f141d00e6459e901d77ed764b9, type: 2}
   m_sharedMaterial: {fileID: -557866842855807355, guid: a13686f141d00e6459e901d77ed764b9, type: 2}
