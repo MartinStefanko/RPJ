@@ -41,10 +41,14 @@ public class GameController : MonoBehaviour
     public static bool cantOpenShop;
     public static bool fps = true;
     public static bool isDead;
-    public bool optionsOn;
+    private bool optionsOn;
+    private bool areYouSureNotification;
 
     public GameObject notificationTeacher;
-
+   
+   
+  
+    
 
     Player player1;
     Shoot shoot1;
@@ -69,14 +73,18 @@ public class GameController : MonoBehaviour
         UpdateMoneyTXT();
         UpdateHealthTXT();
         UpdateammoTXT();
-        isDead = false;
         Time.timeScale = 1;
         FriendlyNPC.counter = 0;
+        isDead = false;
         optionsOn = false;
         cantOpenShop = false;
+        areYouSureNotification = false;
+   
+        isPaused = false;
         if (!music.isPlaying)
             music.Play();
 
+        
 
         if (PlayerPrefs.GetFloat("vol") != null)
         {
@@ -96,7 +104,7 @@ public class GameController : MonoBehaviour
         {
             UpdateHealthTXT();
             RescueTeachears();
-            if (!cantPause && !optionsOn) {
+            if (!cantPause && !optionsOn && !areYouSureNotification && !isDead) {
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
 
@@ -153,8 +161,18 @@ public class GameController : MonoBehaviour
             optionsOn = false;
         }
 
+        public void AreYouSureNotificationRestartOn()
+        {
+        areYouSureNotification = true;
+        }
+        public void AreYouSureNotificationRestartOff()
+        {
+        areYouSureNotification = false;
+        }
 
-        public void RefreshRate()
+   
+
+    public void RefreshRate()
         {
             float timelapse = Time.smoothDeltaTime;
             timer = timer <= 0 ? refresh : timer -= timelapse;

@@ -9,8 +9,6 @@ public class Lvl2Loader : MonoBehaviour
 
         foreach (Transform child in this.transform)
         {
-            
-
             if (PlayerPrefs.GetInt("lvl2Completed") == 1)
             {
                 if (child.gameObject.tag == "FriendlyNPC" || child.gameObject.tag == "Enemy")
