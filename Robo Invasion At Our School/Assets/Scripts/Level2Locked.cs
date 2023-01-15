@@ -8,12 +8,15 @@ public class Level2Locked : MonoBehaviour
     private BoxCollider2D collider;
     public GameObject notification;
     public GameObject notificationLevel;
+    public GameObject pointer2;
 
     // Start is called before the first frame update
     void Start()
     {
         if (PlayerPrefs.GetInt("lvl1Completed") == 1)
             this.gameObject.SetActive(false);
+
+
     }
      IEnumerator WaitBefore()
     {
@@ -30,7 +33,7 @@ public class Level2Locked : MonoBehaviour
             notificationLevel.SetActive(true);
             Invoke("NotificationLevelCompletedOff", 2.5f);
             FriendlyNPC.counter = 0;
-
+            pointer2.SetActive(true);
 
         }
     }

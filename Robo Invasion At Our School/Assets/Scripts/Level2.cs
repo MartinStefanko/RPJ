@@ -7,25 +7,28 @@ public class Level2 : MonoBehaviour
     public GameObject pointer2;
 
 
-
+        
     public GameObject notificationEnteredlevel2;
 
     // Start is called before the first frame update
     void Start()
     {
-       if (PlayerPrefs.GetInt("lvl2Completed") == 1)
+
+        if (PlayerPrefs.GetInt("lvl1Completed") == 0)
         {
             pointer2.SetActive(false);
         }
-        if (PlayerPrefs.GetInt("lvl2Completed") == 0 && PlayerPrefs.GetInt("lvl1Completed") == 1)
+        if (PlayerPrefs.GetInt("lvl2Completed") == 1)
         {
-            pointer2.SetActive(true);
+            pointer2.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        
         
     }
 

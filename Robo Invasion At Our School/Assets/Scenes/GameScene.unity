@@ -1726,12 +1726,12 @@ GameObject:
   - component: {fileID: 188453408}
   - component: {fileID: 188453407}
   m_Layer: 5
-  m_Name: Pointer2
+  m_Name: Skuska
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &188453406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1898,7 +1898,7 @@ RectTransform:
   m_Children:
   - {fileID: 188453406}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123f23b4450b9c4b82fc218dc487945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiCamera: {fileID: 701853351}
+  uiCamera: {fileID: 0}
 --- !u!1 &217708713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1951,7 @@ RectTransform:
   - {fileID: 1132600148}
   - {fileID: 904318916}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4895,6 +4895,7 @@ MonoBehaviour:
   collider: {fileID: 455705219}
   notification: {fileID: 692055653}
   notificationLevel: {fileID: 1009417526}
+  pointer2: {fileID: 188453405}
 --- !u!58 &455705218
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5684,7 +5685,7 @@ RectTransform:
   - {fileID: 1920839219}
   - {fileID: 736224902}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28016,7 +28017,7 @@ RectTransform:
   - {fileID: 1421027452}
   - {fileID: 450353338}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 13
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -43400,7 +43401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &920062328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47464,7 +47465,7 @@ RectTransform:
   - {fileID: 1838752700}
   - {fileID: 1861853057}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -49842,7 +49843,7 @@ RectTransform:
   m_Children:
   - {fileID: 920062328}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -56194,13 +56195,13 @@ RectTransform:
   - {fileID: 1009417527}
   - {fileID: 1361202056}
   - {fileID: 1469195025}
-  - {fileID: 682449884}
   - {fileID: 217708714}
   - {fileID: 550714437}
   - {fileID: 1325372544}
   - {fileID: 1765353540}
   - {fileID: 1544338151}
   - {fileID: 216597456}
+  - {fileID: 682449884}
   - {fileID: 954120683}
   - {fileID: 1821144871}
   m_Father: {fileID: 0}
@@ -56364,7 +56365,7 @@ RectTransform:
   - {fileID: 1139255899}
   - {fileID: 788373096}
   m_Father: {fileID: 1733151370}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

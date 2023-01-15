@@ -18,12 +18,11 @@ public class Level1 : MonoBehaviour
         {
             pointer1.SetActive(false);
         }
+
         if (PlayerPrefs.GetInt("lvl1Completed") == 0)
         {
             pointer1.SetActive(true);
         }
-
-      
 
     }
 
