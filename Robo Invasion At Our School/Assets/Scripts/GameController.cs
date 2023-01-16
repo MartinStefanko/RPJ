@@ -305,13 +305,3 @@ public class GameController : MonoBehaviour
             notificationTeacher.SetActive(false);
         }
     }
-
-
-
-
-
-
-
-
-
-

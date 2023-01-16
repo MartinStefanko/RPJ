@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeMonkey.Utils;
 
 public class Shoot : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Shoot : MonoBehaviour
 
     private float nextFire = 1f;
     public float magSize = 17f;
+    private float maxMagSize = 17;
 
     private bool reloading = false;
 
@@ -35,7 +37,7 @@ public class Shoot : MonoBehaviour
     {
 
         // Check if magazine is empty if so reload
-        if (magSize == 0 || Input.GetKeyDown(KeyCode.R))
+        if (magSize == 0 || (Input.GetKeyDown(KeyCode.R) && magSize != maxMagSize))
         {
             if (!reloadAudio.isPlaying)
                 reloadAudio.Play();
@@ -65,6 +67,8 @@ public class Shoot : MonoBehaviour
 
         GameObject projectile = Instantiate(bullet, firePoint.position, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
+
+        UtilsClass.ShakeCamera(0.02f, 0.1f);
     }
 
     void Reload()
