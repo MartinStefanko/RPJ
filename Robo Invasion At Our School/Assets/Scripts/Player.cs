@@ -15,8 +15,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Camera sceneCamera;
     [SerializeField]
-    public AudioSource runAudio; 
-    
+    public AudioSource runAudio;
+    [SerializeField]
+    public AudioSource playerHitAudio;
+
 
 
     [SerializeField]
@@ -103,7 +105,8 @@ public class Player : MonoBehaviour
             if (hit){
                 StartCoroutine(HitBoxOff()); 
                 health--;
-                
+                if(!playerHitAudio.isPlaying)
+                playerHitAudio.Play();  
             }
         }
     }

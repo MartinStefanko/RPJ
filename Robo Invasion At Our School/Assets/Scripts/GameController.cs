@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
     private bool areYouSureNotification;
 
     public GameObject notificationTeacher;
+    public GameObject notNotEnoughMoney;
    
    
   
@@ -212,6 +213,7 @@ public class GameController : MonoBehaviour
             fps = true;
             Cursor.visible = false;
             aimCursor.SetActive(true);
+            notNotEnoughMoney.SetActive(false);
         }
         public void UpdateHealthTXT() {
             healthTXT.text = player1.health.ToString();

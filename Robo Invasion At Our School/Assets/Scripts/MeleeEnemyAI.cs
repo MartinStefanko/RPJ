@@ -30,6 +30,8 @@ public class MeleeEnemyAI : MonoBehaviour
     private AudioSource hitAudio03;
     [SerializeField]
     private AudioSource deathAudio;
+    [SerializeField]
+    private AudioSource runAudio;
 
     private bool alive = true;
     [SerializeField]
@@ -103,7 +105,9 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (alive)
         {
-
+            if (!runAudio.isPlaying) { 
+            runAudio.Play();
+            }
             agent.SetDestination(target.position);
         }
 
