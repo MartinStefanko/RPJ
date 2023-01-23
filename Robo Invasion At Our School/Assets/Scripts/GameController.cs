@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public AudioMixer audioMixer;
-
+  
     public Slider musicSlider;
     public Slider sfxSlider;
 

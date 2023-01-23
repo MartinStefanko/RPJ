@@ -5,6 +5,7 @@ using UnityEngine;
 public class SafeZone : MonoBehaviour
 {
     GameController gameController;
+    public AudioSource rescueTeacher;
     public static bool rescued;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,10 @@ public class SafeZone : MonoBehaviour
             
             gameObject.SetActive(false);
             FriendlyNPC.counter++;
+            if (!rescueTeacher.isPlaying)
+            {
+                rescueTeacher.Play();
+            }
             gameController.NotificationTeacherOff();
         }
 
