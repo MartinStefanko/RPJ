@@ -141,7 +141,7 @@ public class MeleeEnemyAI : MonoBehaviour
         }
 
         if (currentHealth == 0)
-        {
+        {   
             deathAudio.Play();
             alive = false;
             anim.SetTrigger("Death");
@@ -149,7 +149,18 @@ public class MeleeEnemyAI : MonoBehaviour
             GameController.instance.UpdateMoneyTXT();
             counter++;
             StartCoroutine(Wait());
-            
+          
+        
+          
+
+        }
+
+        if (currentHealth <= 0)
+        {
+
+            agent.speed = 0;
+            collider.enabled = false;
+            boxCollider.enabled = false;
 
         }
 
