@@ -28,8 +28,7 @@ public class Pointer : MonoBehaviour
         float angle = UtilsClass.GetAngleFromVectorFloat(dir);
         pointerRectTransform.localEulerAngles = new Vector3(0, 0, angle);
 
-
-        float borderSize = 100f;
+      
 
 
 
