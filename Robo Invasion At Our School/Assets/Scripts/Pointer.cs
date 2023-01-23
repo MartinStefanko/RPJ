@@ -28,11 +28,24 @@ public class Pointer : MonoBehaviour
         float angle = UtilsClass.GetAngleFromVectorFloat(dir);
         pointerRectTransform.localEulerAngles = new Vector3(0, 0, angle);
 
-        Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(targetPosition);
-        bool isOffScreen = targetPositionScreenPoint.x <= 0 || targetPositionScreenPoint.x >= Screen.width || targetPositionScreenPoint.y <= 0 || targetPositionScreenPoint.y >= Screen.height;
-        Debug.Log(isOffScreen + " " + targetPositionScreenPoint);
+        //float borderSize = 100f;
+        //Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(targetPosition);
+        //bool isOffScreen = targetPositionScreenPoint.x <= borderSize || targetPositionScreenPoint.x >= Screen.width - borderSize || targetPositionScreenPoint.y <= borderSize || targetPositionScreenPoint.y >= Screen.height - borderSize;
+        //Debug.Log(isOffScreen + " " + targetPositionScreenPoint);
 
-        
+        //if (isOffScreen)
+        //{
+        //    Vector3 cappedTargetScreenPosition = targetPositionScreenPoint;
+        //    if (cappedTargetScreenPosition.x <= borderSize) cappedTargetScreenPosition.x = borderSize;
+        //    if (cappedTargetScreenPosition.x >= Screen.width - borderSize) cappedTargetScreenPosition.x = Screen.width - borderSize;
+        //    if (cappedTargetScreenPosition.y <= borderSize) cappedTargetScreenPosition.y = borderSize;
+        //    if (cappedTargetScreenPosition.y >= Screen.height - borderSize) cappedTargetScreenPosition.y = Screen.height - borderSize;
+        //
+        //    Vector3 pointerWorldPosition = Camera.main.ScreenToWorldPoint(cappedTargetScreenPosition);
+        //    pointerRectTransform.position = pointerWorldPosition;
+        //    pointerRectTransform.localPosition = new Vector3(pointerRectTransform.localPosition.x, pointerRectTransform.localPosition.y, 0f);
+        //}
+
 
 
 
