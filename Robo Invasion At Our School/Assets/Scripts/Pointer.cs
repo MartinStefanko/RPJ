@@ -28,7 +28,11 @@ public class Pointer : MonoBehaviour
         float angle = UtilsClass.GetAngleFromVectorFloat(dir);
         pointerRectTransform.localEulerAngles = new Vector3(0, 0, angle);
 
-      
+        Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(targetPosition);
+        bool isOffScreen = targetPositionScreenPoint.x <= 0 || targetPositionScreenPoint.x >= Screen.width || targetPositionScreenPoint.y <= 0 || targetPositionScreenPoint.y >= Screen.height;
+        Debug.Log(isOffScreen + " " + targetPositionScreenPoint);
+
+        
 
 
 
