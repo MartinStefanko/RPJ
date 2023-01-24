@@ -9,7 +9,7 @@ public class Pointer : MonoBehaviour
     private Vector3 targetPosition;
     private RectTransform pointerRectTransform;
     [SerializeField]
-    private Camera uiCamera;
+    private Camera uiCamera;   
     Player player1;
 
     private void Awake()
@@ -36,14 +36,14 @@ public class Pointer : MonoBehaviour
         //if (isOffScreen)
         //{
         //    Vector3 cappedTargetScreenPosition = targetPositionScreenPoint;
-        //    if (cappedTargetScreenPosition.x <= borderSize) cappedTargetScreenPosition.x = borderSize;
+        //   if (cappedTargetScreenPosition.x <= borderSize) cappedTargetScreenPosition.x = borderSize;
         //    if (cappedTargetScreenPosition.x >= Screen.width - borderSize) cappedTargetScreenPosition.x = Screen.width - borderSize;
         //    if (cappedTargetScreenPosition.y <= borderSize) cappedTargetScreenPosition.y = borderSize;
         //    if (cappedTargetScreenPosition.y >= Screen.height - borderSize) cappedTargetScreenPosition.y = Screen.height - borderSize;
         //
-        //    Vector3 pointerWorldPosition = Camera.main.ScreenToWorldPoint(cappedTargetScreenPosition);
-        //    pointerRectTransform.position = pointerWorldPosition;
-        //    pointerRectTransform.localPosition = new Vector3(pointerRectTransform.localPosition.x, pointerRectTransform.localPosition.y, 0f);
+        //    Vector3 pointerWorldPosition = uiCamera.ScreenToWorldPoint(cappedTargetScreenPosition);
+        //      pointerRectTransform.position = pointerWorldPosition;
+        //    pointerRectTransform.localPosition =    new Vector3(pointerRectTransform.localPosition.x, pointerRectTransform.localPosition.y, 0f);
         //}
 
 
