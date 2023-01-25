@@ -46,10 +46,14 @@ public class GameController : MonoBehaviour
 
     public GameObject notificationTeacher;
     public GameObject notNotEnoughMoney;
-   
-   
-  
-    
+
+    [SerializeField]
+    private GameObject quests;
+    [SerializeField]
+    private GameObject pointer;
+
+
+
 
     Player player1;
     Shoot shoot1;
@@ -174,136 +178,142 @@ public class GameController : MonoBehaviour
    
 
     public void RefreshRate()
-        {
-            float timelapse = Time.smoothDeltaTime;
-            timer = timer <= 0 ? refresh : timer -= timelapse;
+    {
+        float timelapse = Time.smoothDeltaTime;
+        timer = timer <= 0 ? refresh : timer -= timelapse;
 
-            if (timer <= 0) avgFramerate = (int)(1f / timelapse);
-            m_Text.text = string.Format(display, avgFramerate.ToString());
-        }
-
-        IEnumerator WaitAndShowFps()
-        {
-            yield return new WaitForSeconds(1);
-            RefreshRate();
-        }
-
-
-        public void Shop()
-        {
-            Time.timeScale = 0;
-            shopMenu.SetActive(true);
-            notification.SetActive(false);
-            shopIsOpened = true;
-            cantPause = true;
-            fps = false;
-            Cursor.visible = true;
-            aimCursor.SetActive(false);
-            player1.runAudio.Stop();
-
-        }
-
-        public void Resume()
-        {
-            Time.timeScale = 1;
-            shopMenu.SetActive(false);
-            notification.SetActive(true);
-            shopIsOpened = false;
-            cantPause = false;
-            fps = true;
-            Cursor.visible = false;
-            aimCursor.SetActive(true);
-            notNotEnoughMoney.SetActive(false);
-        }
-        public void UpdateHealthTXT() {
-            healthTXT.text = player1.health.ToString();
-
-        }
-        public void UpdateMoneyTXT()
-        {
-            moneyTXT.text = money.ToString() + "$";
-        }
-        public void UpdateammoTXT()
-        {
-            ammoTXT.text = shoot1.magSize.ToString();
-
-        }
-        public void NotifícationVisible()
-        {
-            notification.SetActive(true);
-        }
-        public void NotifícationNonVisible()
-        {
-            notification.SetActive(false);
-        }
-
-        public void PauseMenu()
-        {
-            Time.timeScale = 0;
-            pauseMenu.SetActive(true);
-            isPaused = true;
-            cantOpenShop = true;
-            fps = false;
-            Cursor.visible = true;
-            aimCursor.SetActive(false);
-            player1.runAudio.Stop();
-
-
-        }
-        public void PauseMenuResume()
-        {
-            Time.timeScale = 1;
-            pauseMenu.SetActive(false);
-            isPaused = false;
-            cantOpenShop = false;
-            fps = true;
-            Cursor.visible = false;
-            aimCursor.SetActive(true);
-        }
-
-        public void QuitGame()
-        {
-            Application.Quit();
-        }
-        public void MainMenu()
-        {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            FriendlyNPC.isAttached = false;
-            SceneManager.LoadScene("MainMenu");
-            pauseMenu.SetActive(false); Time.timeScale = 1;
-            isPaused = false;
-        }
-        public void DeathMenu()
-        {
-            deathMenu.SetActive(true);
-            Time.timeScale = 0;
-            Cursor.visible = true;
-            aimCursor.SetActive(false);
-        }
-
-        public void RestartGameLevel1()
-        {
-            SceneManager.LoadScene("GameScene");
-            deathMenu.SetActive(false);
-        }
-
-        public void RescueTeachears()
-        {
-            teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/4";
-
-            if (PlayerPrefs.GetInt("lvl1Completed") == 1)
-            {
-                teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/6";
-            }
-
-        }
-
-        public void NotificationTeacherOn()
-        {
-            notificationTeacher.SetActive(true);
-        }
-        public void NotificationTeacherOff()
-        {
-            notificationTeacher.SetActive(false);
-        }
+        if (timer <= 0) avgFramerate = (int)(1f / timelapse);
+        m_Text.text = string.Format(display, avgFramerate.ToString());
     }
+
+    IEnumerator WaitAndShowFps()
+    {
+        yield return new WaitForSeconds(1);
+        RefreshRate();
+    }
+
+
+    public void Shop()
+    {
+        Time.timeScale = 0;
+        shopMenu.SetActive(true);
+        notification.SetActive(false);
+        shopIsOpened = true;
+        cantPause = true;
+        fps = false;
+        Cursor.visible = true;
+        aimCursor.SetActive(false);
+        player1.runAudio.Stop();
+
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        shopMenu.SetActive(false);
+        notification.SetActive(true);
+        shopIsOpened = false;
+        cantPause = false;
+        fps = true;
+        Cursor.visible = false;
+        aimCursor.SetActive(true);
+        notNotEnoughMoney.SetActive(false);
+    }
+    public void UpdateHealthTXT()
+    {
+        healthTXT.text = player1.health.ToString();
+
+    }
+    public void UpdateMoneyTXT()
+    {
+        moneyTXT.text = money.ToString() + "$";
+    }
+    public void UpdateammoTXT()
+    {
+        ammoTXT.text = shoot1.magSize.ToString();
+
+    }
+    public void NotifícationVisible()
+    {
+        notification.SetActive(true);
+    }
+    public void NotifícationNonVisible()
+    {
+        notification.SetActive(false);
+    }
+
+    public void PauseMenu()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        isPaused = true;
+        cantOpenShop = true;
+        fps = false;
+        Cursor.visible = true;
+        aimCursor.SetActive(false);
+        player1.runAudio.Stop();
+
+
+    }
+    public void PauseMenuResume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        isPaused = false;
+        cantOpenShop = false;
+        fps = true;
+        Cursor.visible = false;
+        aimCursor.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void MainMenu()
+    {
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        FriendlyNPC.isAttached = false;
+        SceneManager.LoadScene("MainMenu");
+        pauseMenu.SetActive(false); Time.timeScale = 1;
+        isPaused = false;
+    }
+    public void DeathMenu()
+    {
+        deathMenu.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        aimCursor.SetActive(false);
+    }
+
+    public void RestartGameLevel1()
+    {
+        DialoguePlayer.start = false;
+        SceneManager.LoadScene("GameScene");
+        deathMenu.SetActive(false);
+
+        quests.SetActive(true);
+        if (PlayerPrefs.GetInt("lvl1Completed") == 0)
+            pointer.SetActive(true);
+    }
+
+    public void RescueTeachears()
+    {
+        teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/4";
+
+        if (PlayerPrefs.GetInt("lvl1Completed") == 1)
+        {
+            teacher.text = "Rescue teachers: " + FriendlyNPC.counter.ToString() + "/6";
+        }
+
+    }
+
+    public void NotificationTeacherOn()
+    {
+        notificationTeacher.SetActive(true);
+    }
+    public void NotificationTeacherOff()
+    {
+        notificationTeacher.SetActive(false);
+    }
+}

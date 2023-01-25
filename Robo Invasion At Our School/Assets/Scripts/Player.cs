@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead) {
+        if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead && DialogueNPC.dialogueOver) {
             ProcessInputs();
             Animate();
 
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GameController.isDead) 
+        if (!GameController.isDead && DialogueNPC.dialogueOver) 
         {
             Move();
         }

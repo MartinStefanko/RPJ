@@ -8574,6 +8574,8 @@ MonoBehaviour:
   lines:
   - Thank you so much for your help If you need anything come to me
   dialogueBox: {fileID: 1826139029}
+  quests: {fileID: 724911696}
+  pointer: {fileID: 1028312519}
 --- !u!114 &608522464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52771,6 +52773,8 @@ MonoBehaviour:
   m_Text: {fileID: 1355831858}
   notificationTeacher: {fileID: 1981814144}
   notNotEnoughMoney: {fileID: 1617224341}
+  quests: {fileID: 724911696}
+  pointer: {fileID: 1028312519}
 --- !u!4 &1453580428
 Transform:
   m_ObjectHideFlags: 0
@@ -53771,7 +53775,7 @@ MonoBehaviour:
   textComponent: {fileID: 1522534837}
   textSpeed: 0.05
   lines:
-  - OMG! I hope I can still make it
+  - Oh no! I hope I can still make it
   dialogueBox: {fileID: 2123672567}
 --- !u!114 &1522534837
 MonoBehaviour:
@@ -53793,7 +53797,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a13686f141d00e6459e901d77ed764b9, type: 2}
   m_sharedMaterial: {fileID: -557866842855807355, guid: a13686f141d00e6459e901d77ed764b9, type: 2}

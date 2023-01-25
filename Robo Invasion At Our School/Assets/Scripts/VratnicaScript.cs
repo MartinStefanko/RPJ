@@ -35,7 +35,7 @@ public class VratnicaScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && DialogueNPC2.dialogueOver)
         {
             isInRange = true;
             gamecontrol.NotifícationVisible();

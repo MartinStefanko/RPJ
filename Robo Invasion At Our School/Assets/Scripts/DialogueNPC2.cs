@@ -13,6 +13,10 @@ public class DialogueNPC2 : MonoBehaviour
     private string[] lines;
     [SerializeField]
     private GameObject dialogueBox;
+    [SerializeField]
+    private GameObject quests;
+    [SerializeField]
+    private GameObject pointer;
 
 
 
@@ -50,5 +54,7 @@ public class DialogueNPC2 : MonoBehaviour
     {
         Destroy(dialogueBox);
         dialogueOver = true;
+        quests.SetActive(true);
+        pointer.SetActive(true);
     }
 }

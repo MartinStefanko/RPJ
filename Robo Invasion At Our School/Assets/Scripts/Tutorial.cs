@@ -35,6 +35,8 @@ public class Tutorial : MonoBehaviour
         magazine.SetActive(false);
         fps.SetActive(false);
         pointer.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -53,12 +55,12 @@ public class Tutorial : MonoBehaviour
             fps.SetActive(true);
         }
 
-        if (dialogueBoxNPC2 != null && robot == null)
+        if (dialogueBoxNPC2 != null && robot == null && DialoguePlayer.start)
             dialogueBoxNPC2.SetActive(true);
+
         if (DialogueNPC2.dialogueOver)
         {
-            quests.SetActive(true);
-            pointer.SetActive(true);
+            
         }
 
 

@@ -14,7 +14,11 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("lvl1Completed", 0);
         PlayerPrefs.SetInt("lvl2Completed", 0);
-        SceneManager.LoadScene("GameScene");
+        DialoguePlayer.dialogueOver = false;
+        DialogueNPC.dialogueOver = false;
+        SceneManager.LoadScene("Cutscene");
+        DialoguePlayer.start = true;
+
     }
 
     public void QuitGame()
