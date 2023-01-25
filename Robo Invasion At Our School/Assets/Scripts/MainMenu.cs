@@ -5,9 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void LoadGame()  
+    public GameObject notification;
+    public void LoadGame()
     {
+        if (PlayerPrefs.GetInt("lvl1Completed") == 0 )
+        {
+            notification.SetActive(true);
+        }
+        else { 
+        DialoguePlayer.dialogueOver = true;
+        DialogueNPC.dialogueOver = true;
         SceneManager.LoadScene("GameScene");
+        DialoguePlayer.start = false;
+        }
     }
 
     public void NewGame()
