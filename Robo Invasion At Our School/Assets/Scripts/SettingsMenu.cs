@@ -60,13 +60,13 @@ public class SettingsMenu : MonoBehaviour
         //Debug.Log(PlayerPrefs.GetInt("quality"));
         if (PlayerPrefs.GetFloat("vol") != null)
         {
-            audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("vol"));
-            musicSlider.value = PlayerPrefs.GetFloat("vol");
+            musicSlider.value = PlayerPrefs.GetFloat("vol", 1f);
+            audioMixer.SetFloat("Music", Mathf.Log10(musicSlider.value) * 20);
         }
         if (PlayerPrefs.GetFloat("sfx") != null)
         {
-            audioMixer.SetFloat("SFX", PlayerPrefs.GetFloat("sfx"));
-            sfxSlider.value = PlayerPrefs.GetFloat("sfx");
+            sfxSlider.value = PlayerPrefs.GetFloat("sfx", 1f);
+            audioMixer.SetFloat("SFX", Mathf.Log10(sfxSlider.value) * 20);
 
         }
         if (PlayerPrefs.GetInt("quality") != null)
@@ -117,14 +117,14 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("Music", volume);
         PlayerPrefs.SetFloat("vol", volume);
+        audioMixer.SetFloat("Music", Mathf.Log10(volume) * 20);
 
     }
     public void SetSfx(float volume)
     {
-        audioMixer.SetFloat("SFX", volume);
         PlayerPrefs.SetFloat("sfx", volume);
+        audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
 
     }
 

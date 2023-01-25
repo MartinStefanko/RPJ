@@ -3180,8 +3180,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1386200196}
   m_HandleRect: {fileID: 469473774}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -5195,7 +5195,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1586246858064125166, guid: 20aeda3c7d0b05442a38f6a90a732414, type: 2}
   m_audioClip: {fileID: 8300000, guid: c7caa5398cc910449a6a16d3c0be000c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6947,8 +6947,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1794099639}
   m_HandleRect: {fileID: 1310480195}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
