@@ -6,7 +6,7 @@ public class Lvl2Loader : MonoBehaviour
 {
     void Start()
     {
-
+        
         foreach (Transform child in this.transform)
         {
             if (PlayerPrefs.GetInt("lvl2Completed") == 1)
