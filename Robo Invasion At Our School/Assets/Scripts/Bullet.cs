@@ -19,6 +19,9 @@ public class Bullet : MonoBehaviour
             case "Enemy":
                 Destroy(gameObject);
                 break;
+            case "Door":
+                Destroy(gameObject);
+                break;
         }
          
     }
