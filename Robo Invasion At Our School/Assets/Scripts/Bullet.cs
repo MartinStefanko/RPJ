@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
 
     public float damage=1;
-
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         switch (other.gameObject.tag)
@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         }
          
     }
+    
    
 
 }
