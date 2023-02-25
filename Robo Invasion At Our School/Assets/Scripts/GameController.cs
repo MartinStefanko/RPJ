@@ -52,11 +52,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject pointer;
 
-
-
-
     Player player1;
     Shoot shoot1;
+
     public void Awake()
     {
         if (instance == null)
@@ -288,7 +286,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGameLevel1()
     {
-        DialoguePlayer.start = false;
+        DialogueHandler.startPlayerDialogue = false;
         SceneManager.LoadScene("GameScene");
         deathMenu.SetActive(false);
 

@@ -21,7 +21,6 @@ public class DialogueNPC : MonoBehaviour
     public static bool dialogueOver = false;
 
 
-    // Start is called before the first frame update
     void Awake()
     {
         StartDialogue();

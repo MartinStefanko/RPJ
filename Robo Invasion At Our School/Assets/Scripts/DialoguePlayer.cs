@@ -17,17 +17,16 @@ public class DialoguePlayer : MonoBehaviour
     private int index;
 
     public static bool dialogueOver = false;
-    public static bool start;
 
 
     // Start is called before the first frame update
-    /*
+    
     void Start()
     {
-        dialogueBox.SetActive(false);
-        Invoke("StartDialogue", 1f);
+        StartDialogue();
     }
-    */
+
+    /*
     private void Start()
     {
         if (start)
@@ -35,11 +34,12 @@ public class DialoguePlayer : MonoBehaviour
         else
             dialogueBox.SetActive(false);
     }
+    */
 
     void StartDialogue()
     {
         textComponent.text = string.Empty;
-        dialogueBox.SetActive(true);
+        //dialogueBox.SetActive(true);
         index = 0;
         StartCoroutine(TypeLine());
         

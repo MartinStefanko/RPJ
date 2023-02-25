@@ -5,11 +5,11 @@ using UnityEngine;
 public class Level1 : MonoBehaviour
 {
     public GameObject pointer1;
- 
-
 
     public GameObject notificationEnteredlevel1;
-  
+
+    public static bool playerOnLvl = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class Level1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && PlayerPrefs.GetInt("lvl1Completed") == 0)
         {
+            playerOnLvl = true;
             pointer1.SetActive(false);
             notificationEnteredlevel1.SetActive(true);
             Invoke("NotificationLEvel1EnteredOff", 2.5f);
@@ -54,6 +55,7 @@ public class Level1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && PlayerPrefs.GetInt("lvl1Completed") == 0)
         {
             pointer1.SetActive(true);
+            playerOnLvl = false;
         }
         if (collision.gameObject.CompareTag("Player") && PlayerPrefs.GetInt("lvl1Completed") == 1)
         {

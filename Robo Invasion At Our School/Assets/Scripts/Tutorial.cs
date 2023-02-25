@@ -55,12 +55,14 @@ public class Tutorial : MonoBehaviour
             fps.SetActive(true);
         }
 
-        if (dialogueBoxNPC2 != null && robot == null && DialoguePlayer.start)
+        if (dialogueBoxNPC2 != null && robot == null && DialogueHandler.startPlayerDialogue)
             dialogueBoxNPC2.SetActive(true);
 
         if (DialogueNPC2.dialogueOver)
         {
-            
+            quests.SetActive(true);
+            if(!Level1.playerOnLvl)
+                pointer.SetActive(true);
         }
 
 

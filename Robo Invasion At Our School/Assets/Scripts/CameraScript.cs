@@ -23,17 +23,6 @@ public class CameraScript : MonoBehaviour
 
             transform.position = player.position + midPointV3;
         }
-        
-        
-
-
-
-        /* 
-        if (midPoint.x < -0.3 || midPoint.x > 0.3 || midPoint.y < -0.3 || midPoint.y > 0.3)
-            transform.position = player.position + midPointV3;
-        else
-           transform.position = new Vector3(player.position.x, player.position.y, -10);
-        */
 
     } 
 }

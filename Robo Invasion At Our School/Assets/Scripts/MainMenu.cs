@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject notification;
+
     public void LoadGame()
     {
         if (PlayerPrefs.GetInt("lvl1Completed") == 0 )
@@ -16,7 +17,7 @@ public class MainMenu : MonoBehaviour
         DialoguePlayer.dialogueOver = true;
         DialogueNPC.dialogueOver = true;
         SceneManager.LoadScene("GameScene");
-        DialoguePlayer.start = false;
+        DialogueHandler.startPlayerDialogue = false;
         }
     }
 
@@ -27,7 +28,7 @@ public class MainMenu : MonoBehaviour
         DialoguePlayer.dialogueOver = false;
         DialogueNPC.dialogueOver = false;
         SceneManager.LoadScene("Cutscene");
-        DialoguePlayer.start = true;
+        DialogueHandler.startPlayerDialogue = true;
 
     }
 
