@@ -6493,7 +6493,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507826684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.465, y: 0.409, z: 0}
+  m_LocalPosition: {x: 0.528, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31902,6 +31902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45595287e8bbb7548b7fd5a455320831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!4 &720911114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549487974565308974, guid: 975916e5cc44f204c88145021cdbfc22, type: 3}
@@ -32388,6 +32389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45595287e8bbb7548b7fd5a455320831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!1 &757079456
 GameObject:
   m_ObjectHideFlags: 0
@@ -48357,7 +48359,6 @@ MonoBehaviour:
   notNotEnoughMoney: {fileID: 1617224341}
   quests: {fileID: 724911696}
   pointer: {fileID: 1028312519}
-  tutorialEnemy: {fileID: 32279650}
 --- !u!4 &1453580428
 Transform:
   m_ObjectHideFlags: 0
@@ -51312,6 +51313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45595287e8bbb7548b7fd5a455320831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 32279650}
 --- !u!1 &1657776006
 GameObject:
   m_ObjectHideFlags: 0
@@ -60850,8 +60852,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987815891}
   m_LocalRotation: {x: -0, y: -0, z: 0.004363274, w: 0.9999905}
-  m_LocalPosition: {x: 0.744, y: -0.434, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.704, y: -0.412, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 507826685}
@@ -60899,7 +60901,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 712b7adfdad1e394a9f758c2a81789cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 139286a4adf5279439d1ef69c68b061c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -60943,7 +60945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1987815894}
-  bullet: {fileID: 3734989792322917528, guid: 0026aa9db05f25746aaeb9c408debd96, type: 3}
+  bullet: {fileID: 1012581418366232124, guid: ea30c5ee1f0e89c4ead64270da40caeb, type: 3}
   firePoint: {fileID: 507826685}
   fireForce: 40
   gunShotAudio: {fileID: 1987815897}

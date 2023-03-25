@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a47dde7e35fa3634da001ef0f8faafab, type: 2}
+  m_Motion: {fileID: 7400000, guid: e82989b9d252e964288ce27807aa76b4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -60,7 +60,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AimShoot
-  m_Speed: 1.3
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 525783942605278350}
@@ -73,7 +73,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 23e9a83d6e22f62438a2904ffae78bca, type: 2}
+  m_Motion: {fileID: 7400000, guid: cbbc67351a605d348a142246f1ad7381, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

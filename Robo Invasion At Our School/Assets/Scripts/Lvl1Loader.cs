@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Lvl1Loader : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject enemy;
     void Start()
     {
         
@@ -22,5 +24,8 @@ public class Lvl1Loader : MonoBehaviour
             }
             
         }
+
+        if (PlayerPrefs.GetInt("lvl1Completed") == 1)
+            enemy.SetActive(false);
     }
 }
