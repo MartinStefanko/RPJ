@@ -22,20 +22,18 @@ public class Shoot : MonoBehaviour
     private float fireRate = 1f;
 
     private float nextFire = 1f;
-    public float magSize = 17f;
-    private float maxMagSize = 17;
+    public float magSize = 6;
+    public float maxMagSize = 6;
 
     private bool reloading = false;
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
         // Check if magazine is empty if so reload
         if (magSize == 0 || (Input.GetKeyDown(KeyCode.R) && magSize != maxMagSize))
         {
@@ -54,8 +52,9 @@ public class Shoot : MonoBehaviour
                 anim.SetTrigger("Shoot");
                 Fire();
                 gunShotAudio.Play();
-                GameController.instance.UpdateammoTXT();
+                GameController.instance.UpdateAmmoTXT();
             }
+
         }
     }
 
@@ -69,14 +68,17 @@ public class Shoot : MonoBehaviour
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
 
         UtilsClass.ShakeCamera(0.02f, 0.1f);
+
+
     }
 
     void Reload()
     {
-
-        magSize = 17;
-        GameController.instance.UpdateammoTXT();
+        magSize = maxMagSize;
+        GameController.instance.UpdateAmmoTXT();
         reloading = false;
+
+        CancelInvoke();
 
     }
     public void DestroyWeapon()

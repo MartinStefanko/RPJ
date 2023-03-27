@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
 
         UpdateMoneyTXT();
         UpdateHealthTXT();
-        UpdateammoTXT();
+        UpdateAmmoTXT();
         Time.timeScale = 1;
         FriendlyNPC.counter = 0;
         isDead = false;
@@ -110,18 +110,10 @@ public class GameController : MonoBehaviour
             if (!cantPause && !optionsOn && !areYouSureNotification && !isDead) {
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-
                     if (isPaused)
-                    {
-
                         PauseMenuResume();
-
-
-                    }
                     else
-                    {
                         PauseMenu();
-                    }
                 }
 
 
@@ -135,8 +127,6 @@ public class GameController : MonoBehaviour
             }
             if (player1.health == 0)
             {
-
-
                 player1.anim.SetTrigger("dead");
                 isDead = true;
                 if (shoot1 != null)
@@ -226,9 +216,9 @@ public class GameController : MonoBehaviour
     {
         moneyTXT.text = money.ToString() + "$";
     }
-    public void UpdateammoTXT()
+    public void UpdateAmmoTXT()
     {
-        ammoTXT.text = shoot1.magSize.ToString();
+        ammoTXT.text = shoot1.magSize.ToString() + "/" + shoot1.maxMagSize.ToString();
 
     }
     public void NotifícationVisible()

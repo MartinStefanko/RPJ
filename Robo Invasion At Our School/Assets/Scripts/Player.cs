@@ -19,8 +19,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     public AudioSource playerHitAudio;
 
-
-
     [SerializeField]
     public int health;
 
@@ -30,26 +28,32 @@ public class Player : MonoBehaviour
     private Vector2 mousePosition;
 
     private Animator animHitbox;
-      
+
+    public HealthSystem hp;
+
     void Awake()
     {
         animHitbox = GetComponent<Animator>();
+
+        
     }
+    void Start()
+    {
+        hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead && DialogueNPC.dialogueOver) {
             ProcessInputs();
             Animate();
-
         }
+
         else
         {
             rb.Sleep();
         }
-
-       
-      
     }
 
     private void FixedUpdate()
@@ -105,6 +109,7 @@ public class Player : MonoBehaviour
             if (hit){
                 StartCoroutine(HitBoxOff()); 
                 health--;
+                hp.UpdateHealth();
                 if(!playerHitAudio.isPlaying)
                 playerHitAudio.Play();  
             }

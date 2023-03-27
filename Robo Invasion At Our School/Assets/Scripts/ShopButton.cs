@@ -13,9 +13,10 @@ public class ShopButton : MonoBehaviour
    
 
     Player player1;
+    HealthSystem hp;
     void Start()
     {
-       
+        hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
         player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -26,6 +27,7 @@ public class ShopButton : MonoBehaviour
         {
             GameController.instance.money -= costOfHeart;
             player1.health += 1;
+            hp.UpdateHealth();
             GameController.instance.UpdateMoneyTXT();
             GameController.instance.UpdateHealthTXT();
             if(!buySound.isPlaying)
