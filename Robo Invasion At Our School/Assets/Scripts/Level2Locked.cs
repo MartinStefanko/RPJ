@@ -27,7 +27,7 @@ public class Level2Locked : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FriendlyNPC.counter == 4 && PlayerPrefs.GetInt("lvl1Completed") == 0)
+        if (FriendlyNPC.counter == 1 && PlayerPrefs.GetInt("lvl1Completed") == 0)
         {
             PlayerPrefs.SetInt("lvl1Completed", 1);
             notificationLevel.SetActive(true);

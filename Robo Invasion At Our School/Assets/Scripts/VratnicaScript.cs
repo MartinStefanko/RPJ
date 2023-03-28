@@ -14,7 +14,7 @@ public class VratnicaScript : MonoBehaviour
     void Start()
     {
         gamecontrol = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-    
+        
         target = GameObject.FindWithTag("Player").transform;
     }
 
@@ -35,8 +35,13 @@ public class VratnicaScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("skuska");
+        Debug.Log(DialogueNPC2.dialogueOver);
+
         if (collision.gameObject.CompareTag("Player") && DialogueNPC2.dialogueOver)
         {
+            Debug.Log("true");
+
             isInRange = true;
             gamecontrol.NotifícationVisible();
         }

@@ -12,8 +12,7 @@ public class Tutorial : MonoBehaviour
     private GameObject quests;
     [SerializeField]
     private GameObject magazine;
-    [SerializeField]
-    private GameObject fps;
+    
     [SerializeField]
     private GameObject pointer;
 
@@ -33,7 +32,7 @@ public class Tutorial : MonoBehaviour
         panel.SetActive(false);
         quests.SetActive(false);
         magazine.SetActive(false);
-        fps.SetActive(false);
+      
         pointer.SetActive(false);
 
 
@@ -52,7 +51,7 @@ public class Tutorial : MonoBehaviour
         {
             panel.SetActive(true);
             magazine.SetActive(true);
-            fps.SetActive(true);
+         
         }
 
         if (dialogueBoxNPC2 != null && robot == null && DialogueHandler.startPlayerDialogue)

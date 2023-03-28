@@ -29,7 +29,6 @@ public class ShopButton : MonoBehaviour
             player1.health += 1;
             hp.UpdateHealth();
             GameController.instance.UpdateMoneyTXT();
-            GameController.instance.UpdateHealthTXT();
             if(!buySound.isPlaying)
             buySound.Play();
         }

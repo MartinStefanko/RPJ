@@ -20,8 +20,7 @@ public class GameController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject deathMenu;
     public int money;
-    public TextMeshProUGUI moneyTXT;
-    public TextMeshProUGUI healthTXT;
+    public TextMeshProUGUI moneyTXT;    
     public TextMeshProUGUI ammoTXT;
     public TextMeshProUGUI NotificationTXT;
     public TextMeshProUGUI teacher;
@@ -30,10 +29,6 @@ public class GameController : MonoBehaviour
 
     public AudioSource music;
 
-
-    public float timer, refresh, avgFramerate;
-    public string display = "{0} FPS";
-    public TextMeshProUGUI m_Text;
 
     public static bool isPaused;
     public static bool shopIsOpened;
@@ -74,7 +69,7 @@ public class GameController : MonoBehaviour
         shoot1 = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Shoot>();
 
         UpdateMoneyTXT();
-        UpdateHealthTXT();
+    
         UpdateAmmoTXT();
         Time.timeScale = 1;
         FriendlyNPC.counter = 0;
@@ -105,7 +100,7 @@ public class GameController : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-            UpdateHealthTXT();
+           
             RescueTeachears();
             if (!cantPause && !optionsOn && !areYouSureNotification && !isDead) {
                 if (Input.GetKeyDown(KeyCode.Escape))
@@ -118,13 +113,7 @@ public class GameController : MonoBehaviour
 
 
             }
-            if (!isPaused && !shopIsOpened) {
-                if (fps) {
-                    StartCoroutine(WaitAndShowFps());
-
-                }
-
-            }
+           
             if (player1.health == 0)
             {
                 player1.anim.SetTrigger("dead");
@@ -165,20 +154,6 @@ public class GameController : MonoBehaviour
 
    
 
-    public void RefreshRate()
-    {
-        float timelapse = Time.smoothDeltaTime;
-        timer = timer <= 0 ? refresh : timer -= timelapse;
-
-        if (timer <= 0) avgFramerate = (int)(1f / timelapse);
-        m_Text.text = string.Format(display, avgFramerate.ToString());
-    }
-
-    IEnumerator WaitAndShowFps()
-    {
-        yield return new WaitForSeconds(1);
-        RefreshRate();
-    }
 
 
     public void Shop()
@@ -207,11 +182,7 @@ public class GameController : MonoBehaviour
         aimCursor.SetActive(true);
         notNotEnoughMoney.SetActive(false);
     }
-    public void UpdateHealthTXT()
-    {
-        healthTXT.text = player1.health.ToString();
-
-    }
+   
     public void UpdateMoneyTXT()
     {
         moneyTXT.text = money.ToString() + "$";

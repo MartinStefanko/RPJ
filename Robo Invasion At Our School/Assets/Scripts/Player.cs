@@ -39,12 +39,24 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        if (PlayerPrefs.GetInt("lvl1Completed") == 1) { 
+            health = PlayerPrefs.GetInt("Health"); 
+            
+        }
+       
+        else
+        {
+            health = 6;
+        }
+        
+        
         hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead && DialogueNPC.dialogueOver) {
             ProcessInputs();
             Animate();
@@ -94,7 +106,7 @@ public class Player : MonoBehaviour
     IEnumerator HitBoxOff()
     {
         hit = false;
-        animHitbox.SetTrigger("Hit"); GameController.instance.UpdateHealthTXT();
+        animHitbox.SetTrigger("Hit"); 
         yield return new WaitForSeconds(1.5f);
         
         hit = true;
@@ -110,6 +122,7 @@ public class Player : MonoBehaviour
                 StartCoroutine(HitBoxOff()); 
                 health--;
                 hp.UpdateHealth();
+                PlayerPrefs.SetInt("Health", health);
                 if(!playerHitAudio.isPlaying)
                 playerHitAudio.Play();  
             }
