@@ -27,7 +27,6 @@ public class VratnicaScript : MonoBehaviour
         {
             if (isInRange)
             {
-                Debug.Log("Shop");
                 gamecontrol.Shop();
             }
         }
@@ -35,13 +34,9 @@ public class VratnicaScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("skuska");
-        Debug.Log(DialogueNPC2.dialogueOver);
 
         if (collision.gameObject.CompareTag("Player") && DialogueNPC2.dialogueOver)
         {
-            Debug.Log("true");
-
             isInRange = true;
             gamecontrol.NotifícationVisible();
         }

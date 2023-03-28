@@ -18,56 +18,65 @@ public class HealthSystem : MonoBehaviour
     [SerializeField]
     private GameObject halfHeart3;
 
-    Player p;
-
-    void Start()
-    {
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
     public void UpdateHealth()
     {
-        Debug.Log("inside");
-        if (p.health == 6)
+
+        switch (PlayerPrefs.GetInt("Health"))
         {
-            fullHeart3.SetActive(true);
+            case 6:
+                fullHeart3.SetActive(true);
+                break;
+
+            case 5:
+                fullHeart3.SetActive(false);
+
+                halfHeart3.SetActive(true);
+                break;
+
+            case 4:
+                halfHeart3.SetActive(false);
+                fullHeart3.SetActive(false);
+
+                fullHeart2.SetActive(true);
+                break;
+
+            case 3:
+                halfHeart3.SetActive(false);
+                fullHeart3.SetActive(false);
+
+                fullHeart2.SetActive(false);
+
+                halfHeart2.SetActive(true);
+                break;
+
+            case 2:
+                halfHeart3.SetActive(false);
+                fullHeart3.SetActive(false);
+
+                halfHeart2.SetActive(false);
+                fullHeart2.SetActive(false);
+
+                fullHeart1.SetActive(true);
+                break;
+
+            case 1:
+                halfHeart3.SetActive(false);
+                fullHeart3.SetActive(false);
+
+                halfHeart2.SetActive(false);
+                fullHeart2.SetActive(false);
+
+                fullHeart1.SetActive(false);
+
+                halfHeart1.SetActive(true);
+                break;
+
+            case 0:
+                halfHeart1.SetActive(false);
+                break;
+
         }
 
-        if (p.health == 5)
-        {
-            fullHeart3.SetActive(false);
-
-            halfHeart3.SetActive(true);
-        }
-
-        if (p.health == 4)
-        {
-            halfHeart3.SetActive(false);
-
-            fullHeart2.SetActive(true);
-        }
-
-        if (p.health == 3)
-        {
-            fullHeart2.SetActive(false);
-
-            halfHeart2.SetActive(true);
-        }
-
-        if (p.health == 2)
-        {
-            halfHeart2.SetActive(false);
-
-            fullHeart1.SetActive(true);
-        }
-        if (p.health == 1)
-        {
-            fullHeart1.SetActive(false);
-
-            halfHeart1.SetActive(true);
-        }
-        if (p.health == 0)
-        {
-            halfHeart1.SetActive(false);
-        }
+        
     }
 }

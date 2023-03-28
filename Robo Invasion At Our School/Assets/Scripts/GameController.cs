@@ -114,7 +114,7 @@ public class GameController : MonoBehaviour
 
             }
            
-            if (player1.health == 0)
+            if (PlayerPrefs.GetInt("Health") == 0)
             {
                 player1.anim.SetTrigger("dead");
                 isDead = true;
@@ -247,6 +247,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGameLevel1()
     {
+        PlayerPrefs.SetInt("Health", 6);
         DialogueHandler.startPlayerDialogue = false;
         SceneManager.LoadScene("GameScene");
         deathMenu.SetActive(false);

@@ -51,9 +51,6 @@ public class SettingsMenu : MonoBehaviour
 
         }
 
-            Debug.Log(PlayerPrefs.GetFloat("vol"));
-            Debug.Log(PlayerPrefs.GetFloat("sfx"));
-
     }
     void Update()
     {
@@ -78,7 +75,6 @@ public class SettingsMenu : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("fullscreen") != null)
         {
-            Debug.Log(PlayerPrefs.GetInt("fullscreen"));
             int value = PlayerPrefs.GetInt("fullscreen");
             if (value == 1)
             {
@@ -139,7 +135,6 @@ public class SettingsMenu : MonoBehaviour
     }
     public void SetFullScreen(bool isFullscreen)
     {
-        Debug.Log(isFullscreen);
         Screen.fullScreen = isFullscreen;
 
         int a;

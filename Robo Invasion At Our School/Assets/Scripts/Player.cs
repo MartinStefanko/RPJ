@@ -19,8 +19,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     public AudioSource playerHitAudio;
 
-    [SerializeField]
-    public int health;
 
     private bool hit=true;
 
@@ -39,18 +37,19 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        if (PlayerPrefs.GetInt("lvl1Completed") == 1) { 
-            health = PlayerPrefs.GetInt("Health"); 
-            
+        hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
+
+        if (PlayerPrefs.GetInt("lvl1Completed") == 0) {
+            PlayerPrefs.SetInt("Health", 6);
         }
        
         else
         {
-            health = 6;
+            hp.UpdateHealth();
         }
-        
-        
-        hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
+
+
+
     }
 
     // Update is called once per frame
@@ -119,10 +118,9 @@ public class Player : MonoBehaviour
         if (target.tag == "Enemy")
         {   
             if (hit){
-                StartCoroutine(HitBoxOff()); 
-                health--;
+                StartCoroutine(HitBoxOff());      
+                PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") - 1);
                 hp.UpdateHealth();
-                PlayerPrefs.SetInt("Health", health);
                 if(!playerHitAudio.isPlaying)
                 playerHitAudio.Play();  
             }
