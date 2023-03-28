@@ -15,6 +15,7 @@ TagManager:
   - OpenedDoor
   - Pointer
   - HealthSystem
+  - ProgressBar
   layers:
   - Default
   - TransparentFX

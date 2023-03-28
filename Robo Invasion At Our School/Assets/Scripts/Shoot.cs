@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using CodeMonkey.Utils;
 
 public class Shoot : MonoBehaviour
@@ -27,6 +28,9 @@ public class Shoot : MonoBehaviour
 
     private bool reloading = false;
 
+    [SerializeField]
+    private GameObject reloadBar;
+
     void Start()
     {
     }
@@ -41,7 +45,9 @@ public class Shoot : MonoBehaviour
                 reloadAudio.Play();
 
             reloading = true;
-            Invoke("Reload", 2.5f);
+            reloadBar.SetActive(true);
+            //reloadBar.GetComponent<ReloadProgressBar>().Reset();
+            Invoke("Reload", 3f);
         }
 
         if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead && DialogueNPC.dialogueOver)
@@ -77,7 +83,7 @@ public class Shoot : MonoBehaviour
         magSize = maxMagSize;
         GameController.instance.UpdateAmmoTXT();
         reloading = false;
-
+        reloadBar.SetActive(false);
         CancelInvoke();
 
     }
