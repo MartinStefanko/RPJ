@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 17177781}
   m_Layer: 5
   m_Name: ReloadProgress
-  m_TagString: ProgressBar
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46074,7 +46074,7 @@ GameObject:
   - component: {fileID: 1193975786}
   m_Layer: 5
   m_Name: ReloadProgressBar
-  m_TagString: Untagged
+  m_TagString: ProgressBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61515,7 +61515,7 @@ MonoBehaviour:
   fireForce: 40
   gunShotAudio: {fileID: 1987815897}
   reloadAudio: {fileID: 1987815896}
-  fireRate: 0.3
+  fireRate: 0.6
   magSize: 6
   maxMagSize: 6
   reloadBar: {fileID: 17177780}
@@ -61531,7 +61531,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5670448700488543968, guid: 20aeda3c7d0b05442a38f6a90a732414, type: 2}
   m_audioClip: {fileID: 8300000, guid: 28696869283085f42bb0c850fc2239ee, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -61627,7 +61627,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5670448700488543968, guid: 20aeda3c7d0b05442a38f6a90a732414, type: 2}
   m_audioClip: {fileID: 8300000, guid: a86e31e37d091454bbc7776cd6cf5c0f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

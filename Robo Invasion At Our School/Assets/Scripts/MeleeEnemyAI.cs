@@ -124,10 +124,10 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Bullet"))
         {
-            Debug.Log(currentHealth);
+            //Debug.Log(currentHealth);
             isInChaseRange = true;
             currentHealth -= 1;
-            Debug.Log(currentHealth);
+            //Debug.Log(currentHealth);
             int randNum = Random.Range(1, 3);
             switch (randNum)
             {

@@ -34,12 +34,7 @@ public class DialogueNPC2 : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("lvl1Completed") != 0)
-        {
-            Debug.Log("dialogue true");
-            dialogueOver = true;
-
-        }
+        
     }
 
     void StartDialogue()

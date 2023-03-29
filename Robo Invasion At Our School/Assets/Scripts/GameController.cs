@@ -167,6 +167,7 @@ public class GameController : MonoBehaviour
         Cursor.visible = true;
         aimCursor.SetActive(false);
         player1.runAudio.Stop();
+        shoot1.reloadAudio.Pause();
 
     }
 
@@ -181,8 +182,9 @@ public class GameController : MonoBehaviour
         Cursor.visible = false;
         aimCursor.SetActive(true);
         notNotEnoughMoney.SetActive(false);
+        shoot1.reloadAudio.UnPause();
     }
-   
+
     public void UpdateMoneyTXT()
     {
         moneyTXT.text = money.ToString() + "$";
@@ -211,6 +213,8 @@ public class GameController : MonoBehaviour
         Cursor.visible = true;
         aimCursor.SetActive(false);
         player1.runAudio.Stop();
+        shoot1.reloadAudio.Pause();
+
 
 
     }
@@ -223,6 +227,7 @@ public class GameController : MonoBehaviour
         fps = true;
         Cursor.visible = false;
         aimCursor.SetActive(true);
+        shoot1.reloadAudio.UnPause();
     }
 
     public void QuitGame()

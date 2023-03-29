@@ -35,7 +35,10 @@ public class Tutorial : MonoBehaviour
       
         pointer.SetActive(false);
 
-
+        if (PlayerPrefs.GetInt("lvl1Completed") != 0)
+        {
+            DialogueNPC2.dialogueOver = true;
+        }
     }
 
     // Update is called once per frame
@@ -60,7 +63,7 @@ public class Tutorial : MonoBehaviour
         if (DialogueNPC2.dialogueOver)
         {
             quests.SetActive(true);
-            if(!Level1.playerOnLvl)
+            if(!Level1.playerOnLvl && PlayerPrefs.GetInt("lvl1Completed") == 0)
                 pointer.SetActive(true);
         }
 

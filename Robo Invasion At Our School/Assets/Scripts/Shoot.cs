@@ -17,7 +17,7 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private AudioSource gunShotAudio;
     [SerializeField]
-    private AudioSource reloadAudio;
+    public AudioSource reloadAudio;
 
     [SerializeField]
     private float fireRate = 1f;
@@ -31,6 +31,9 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private GameObject reloadBar;
 
+    ReloadProgressBar rb;
+    private bool shouldReset = true;
+
     void Start()
     {
     }
@@ -41,12 +44,19 @@ public class Shoot : MonoBehaviour
         // Check if magazine is empty if so reload
         if (magSize == 0 || (Input.GetKeyDown(KeyCode.R) && magSize != maxMagSize))
         {
-            if (!reloadAudio.isPlaying)
-                reloadAudio.Play();
+            
 
             reloading = true;
             reloadBar.SetActive(true);
-            //reloadBar.GetComponent<ReloadProgressBar>().Reset();
+            if (shouldReset)
+            {
+                if (!reloadAudio.isPlaying)
+                    reloadAudio.Play();
+
+                rb = GameObject.FindGameObjectWithTag("ProgressBar").GetComponent<ReloadProgressBar>();
+                rb.Reset();
+            }
+            shouldReset = false;
             Invoke("Reload", 3f);
         }
 
@@ -83,6 +93,7 @@ public class Shoot : MonoBehaviour
         magSize = maxMagSize;
         GameController.instance.UpdateAmmoTXT();
         reloading = false;
+        shouldReset = true;
         reloadBar.SetActive(false);
         CancelInvoke();
 

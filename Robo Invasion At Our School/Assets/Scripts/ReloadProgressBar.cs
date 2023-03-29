@@ -13,6 +13,7 @@ public class ReloadProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Debug.Log("start");
         Reset();
     }
 
@@ -23,6 +24,7 @@ public class ReloadProgressBar : MonoBehaviour
 
     public void Reset()
     {
+        //Debug.Log("resetting");
         slider.minValue = Time.time;
         slider.maxValue = Time.time + fillTime;
     }
