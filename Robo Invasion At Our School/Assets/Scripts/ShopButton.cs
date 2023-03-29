@@ -21,9 +21,9 @@ public class ShopButton : MonoBehaviour
     // Start is called before the first frame update
     public void Buy()
     {
-        if (GameController.instance.money >= costOfHeart)
+        if (PlayerPrefs.GetInt("Money") >= costOfHeart)
         {
-            GameController.instance.money -= costOfHeart;
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - costOfHeart);
             int health = PlayerPrefs.GetInt("Health");
             PlayerPrefs.SetInt("Health", health + 1);
             hp.UpdateHealth();

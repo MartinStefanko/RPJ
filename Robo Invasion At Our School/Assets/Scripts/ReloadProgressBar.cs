@@ -8,7 +8,7 @@ public class ReloadProgressBar : MonoBehaviour
     [SerializeField]
     private Slider slider;    
 
-    private float fillTime = 2.9f;
+    private float fillTime = 2.68f;
 
     // Start is called before the first frame update
     void Start()

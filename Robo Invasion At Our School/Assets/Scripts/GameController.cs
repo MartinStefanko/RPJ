@@ -187,7 +187,8 @@ public class GameController : MonoBehaviour
 
     public void UpdateMoneyTXT()
     {
-        moneyTXT.text = money.ToString() + "$";
+        //moneyTXT.text = money.ToString() + "€";
+        moneyTXT.text = PlayerPrefs.GetInt("Money").ToString() + "€";
     }
     public void UpdateAmmoTXT()
     {

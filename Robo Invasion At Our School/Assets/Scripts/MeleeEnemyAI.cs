@@ -149,7 +149,8 @@ public class MeleeEnemyAI : MonoBehaviour
             deathAudio.Play();
             alive = false;
             anim.SetTrigger("Death");
-            GameController.instance.money += 50;
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + 50);
+            //GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
             counter++;
             StartCoroutine(Wait());

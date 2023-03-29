@@ -57,7 +57,7 @@ public class Shoot : MonoBehaviour
                 rb.Reset();
             }
             shouldReset = false;
-            Invoke("Reload", 3f);
+            Invoke("Reload", 2.68f);
         }
 
         if (!GameController.isPaused && !GameController.shopIsOpened && !GameController.isDead && DialogueNPC.dialogueOver)
