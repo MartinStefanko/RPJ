@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666f5821ba3377940bcf7b670215b909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTime: 16
+  changeTime: 20
   sceneName: GameScene
 --- !u!4 &187458569
 Transform:

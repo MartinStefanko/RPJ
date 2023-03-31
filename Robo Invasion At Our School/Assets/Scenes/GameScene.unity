@@ -61148,9 +61148,9 @@ MonoBehaviour:
   fireForce: 40
   gunShotAudio: {fileID: 1987815897}
   reloadAudio: {fileID: 1987815896}
-  fireRate: 0.6
-  magSize: 6
-  maxMagSize: 6
+  fireRate: 0.45
+  magSize: 8
+  maxMagSize: 8
   reloadBar: {fileID: 17177780}
 --- !u!82 &1987815896
 AudioSource:
