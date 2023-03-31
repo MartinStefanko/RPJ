@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
 
     public HealthSystem hp;
 
+    public int health;
+
     void Awake()
     {
         animHitbox = GetComponent<Animator>();
@@ -39,15 +41,8 @@ public class Player : MonoBehaviour
     {
         hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
 
-        if (PlayerPrefs.GetInt("lvl1Completed") == 0) {
-            PlayerPrefs.SetInt("Health", 6);
-        }
-       
-        else
-        {
-            hp.UpdateHealth();
-        }
-
+        health = PlayerPrefs.GetInt("Health");
+        hp.UpdateHealth();
 
 
     }
@@ -118,8 +113,8 @@ public class Player : MonoBehaviour
         if (target.tag == "Enemy")
         {   
             if (hit){
-                StartCoroutine(HitBoxOff());      
-                PlayerPrefs.SetInt("Health", PlayerPrefs.GetInt("Health") - 1);
+                StartCoroutine(HitBoxOff());
+                health--;
                 hp.UpdateHealth();
                 if(!playerHitAudio.isPlaying)
                 playerHitAudio.Play();  

@@ -10,22 +10,24 @@ public class ShopButton : MonoBehaviour
     private GameObject notificationNotEnoughMoney;
 
     public AudioSource buySound;
-   
+
 
     HealthSystem hp;
+    Player pl;
+
     void Start()
     {
         hp = GameObject.FindGameObjectWithTag("HealthSystem").GetComponent<HealthSystem>();
+        pl = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Start is called before the first frame update
     public void Buy()
     {
-        if (PlayerPrefs.GetInt("Money") >= costOfHeart)
+        if (GameController.instance.money >= costOfHeart && pl.health < 6)
         {
-            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - costOfHeart);
-            int health = PlayerPrefs.GetInt("Health");
-            PlayerPrefs.SetInt("Health", health + 1);
+            GameController.instance.money -= costOfHeart;
+            pl.health++;
             hp.UpdateHealth();
             GameController.instance.UpdateMoneyTXT();
             if(!buySound.isPlaying)

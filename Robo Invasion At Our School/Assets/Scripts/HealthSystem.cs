@@ -18,10 +18,18 @@ public class HealthSystem : MonoBehaviour
     [SerializeField]
     private GameObject halfHeart3;
 
+
+    private Player pl;
+
+    private void Start()
+    {
+        
+    }
     public void UpdateHealth()
     {
-
-        switch (PlayerPrefs.GetInt("Health"))
+        pl = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //switch (PlayerPrefs.GetInt("Health"))
+        switch (pl.health)
         {
             case 6:
                 fullHeart3.SetActive(true);

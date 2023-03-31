@@ -26,11 +26,17 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("lvl1Completed", 0);
         PlayerPrefs.SetInt("lvl2Completed", 0);
         PlayerPrefs.SetInt("Money", 100);
+        PlayerPrefs.SetInt("Health", 6);
         DialoguePlayer.dialogueOver = false;
         DialogueNPC.dialogueOver = false;
         SceneManager.LoadScene("Cutscene");
         DialogueHandler.startPlayerDialogue = true;
 
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

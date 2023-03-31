@@ -40,9 +40,12 @@ public class MeleeEnemyAI : MonoBehaviour
     private BoxCollider2D boxCollider;
     public static int counter = 0;
 
+    GameController gc;
 
     private void Start()
     {
+        gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
         boxCollider.isTrigger = false;
         anim = GetComponent<Animator>();
         target = GameObject.FindWithTag("Player").transform;
@@ -124,10 +127,8 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Bullet"))
         {
-            //Debug.Log(currentHealth);
             isInChaseRange = true;
             currentHealth -= 1;
-            //Debug.Log(currentHealth);
             int randNum = Random.Range(1, 3);
             switch (randNum)
             {
@@ -149,8 +150,7 @@ public class MeleeEnemyAI : MonoBehaviour
             deathAudio.Play();
             alive = false;
             anim.SetTrigger("Death");
-            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + 50);
-            //GameController.instance.money += 50;
+            GameController.instance.money += 50;
             GameController.instance.UpdateMoneyTXT();
             counter++;
             StartCoroutine(Wait());

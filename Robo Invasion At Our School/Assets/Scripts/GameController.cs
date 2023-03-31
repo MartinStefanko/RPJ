@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour
         player1 = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         shoot1 = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Shoot>();
 
+        money = PlayerPrefs.GetInt("Money");
         UpdateMoneyTXT();
     
         UpdateAmmoTXT();
@@ -114,7 +115,8 @@ public class GameController : MonoBehaviour
 
             }
            
-            if (PlayerPrefs.GetInt("Health") == 0)
+            //if (PlayerPrefs.GetInt("Health") == 0)
+            if (player1.health == 0)
             {
                 player1.anim.SetTrigger("dead");
                 isDead = true;
@@ -187,8 +189,7 @@ public class GameController : MonoBehaviour
 
     public void UpdateMoneyTXT()
     {
-        //moneyTXT.text = money.ToString() + "€";
-        moneyTXT.text = PlayerPrefs.GetInt("Money").ToString() + "€";
+        moneyTXT.text = money.ToString() + "$";
     }
     public void UpdateAmmoTXT()
     {
